@@ -4,6 +4,19 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Mockup Example</title>
+    <!-- Favicon -->
+    <link href="img/favicon.ico" rel="icon">
+
+    <!-- Google Web Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@400;500;600&family=Nunito:wght@600;700;800&display=swap" rel="stylesheet">
+
+    <!-- Icon Font Stylesheet -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet">
+
+
     <link rel="stylesheet" href="../css/index.css">
 
 </head>
@@ -20,13 +33,256 @@
             <li><a href="#">Contacto</a></li>
         </ul>
     </nav>
-    <div class="profile-settings"></div>
+    <div class="profile-settings">
+        <button class = "login-button">Login</button>
+        <button class = "signup-button">Sign up</button>
+    </div>
 </header>
 
 <main class="main-content">
+
     <section class="section-1">
-        <h1>Monciem Slomip Lrece Esuenc Stour</h1>
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+        <div class="hero-header">
+            <div class="hero-container">
+                <div class="hero-row">
+                    <div class="hero-content">
+                        <h1 class="hero-title">Enjoy Your Vacation With Us</h1>
+                        <p class="hero-subtitle">
+                            Tempor erat elitr rebum at clita diam amet diam et eos erat ipsum lorem sit
+                        </p>
+                        <div class="hero-search-container">
+                            <input
+                                    class="hero-search-input"
+                                    type="text"
+                                    placeholder="airbnb"
+                            >
+                            <button type="button" class="hero-search-button">Search</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Service Section Start -->
+        <div class="services-section">
+            <div class="container">
+                <div class="section-header">
+                    <h6 class="section-title">Services</h6>
+                    <h1 class="section-subtitle">Our Services</h1>
+                </div>
+                <div class="service-grid">
+                    <div class="service-item">
+                        <div class="service-content">
+                            <i class="fa fa-3x fa-globe service-icon"></i>
+                            <h5>WorldWide Tours</h5>
+                            <p>Diam elitr kasd sed at elitr sed ipsum justo dolor sed clita amet diam</p>
+                        </div>
+                    </div>
+                    <div class="service-item">
+                        <div class="service-content">
+                            <i class="fa fa-3x fa-hotel service-icon"></i>
+                            <h5>Hotel Reservation</h5>
+                            <p>Diam elitr kasd sed at elitr sed ipsum justo dolor sed clita amet diam</p>
+                        </div>
+                    </div>
+                    <div class="service-item">
+                        <div class="service-content">
+                            <i class="fa fa-3x fa-user service-icon"></i>
+                            <h5>Travel Guides</h5>
+                            <p>Diam elitr kasd sed at elitr sed ipsum justo dolor sed clita amet diam</p>
+                        </div>
+                    </div>
+                    <div class="service-item">
+                        <div class="service-content">
+                            <i class="fa fa-3x fa-cog service-icon"></i>
+                            <h5>Event Management</h5>
+                            <p>Diam elitr kasd sed at elitr sed ipsum justo dolor sed clita amet diam</p>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+
+        <div class="about-section">
+            <div class="container">
+                <div class="row">
+                    <div class="about-image-wrapper">
+                        <div class="about-image">
+                            <img src="../assets/about.jpg" alt="About Us">
+                        </div>
+                    </div>
+                    <div class="about-content-wrapper">
+                        <h6 class="section-title">About Us</h6>
+                        <h1 class="about-title">Welcome to <span class="highlight-text">Tourist</span></h1>
+                        <p class="about-text">Tempor erat elitr rebum at clita. Diam dolor diam ipsum sit. Aliqu diam amet diam et eos. Clita erat ipsum et lorem et sit.</p>
+                        <p class="about-text">Tempor erat elitr rebum at clita. Diam dolor diam ipsum sit. Aliqu diam amet diam et eos. Clita erat ipsum et lorem et sit, sed stet lorem sit clita duo justo magna dolore erat amet</p>
+                        <div class="about-features">
+                            <div class="feature-item">
+                                <p><i class="fa fa-arrow-right feature-icon"></i>First Class Flights</p>
+                            </div>
+                            <div class="feature-item">
+                                <p><i class="fa fa-arrow-right feature-icon"></i>Handpicked Hotels</p>
+                            </div>
+                            <div class="feature-item">
+                                <p><i class="fa fa-arrow-right feature-icon"></i>5 Star Accommodations</p>
+                            </div>
+                            <div class="feature-item">
+                                <p><i class="fa fa-arrow-right feature-icon"></i>Latest Model Vehicles</p>
+                            </div>
+                            <div class="feature-item">
+                                <p><i class="fa fa-arrow-right feature-icon"></i>150 Premium City Tours</p>
+                            </div>
+                            <div class="feature-item">
+                                <p><i class="fa fa-arrow-right feature-icon"></i>24/7 Service</p>
+                            </div>
+                        </div>
+                        <a class="btn-primary" href="#">Read More</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+
+        <div class="destination-section">
+            <div class="container">
+                <div class="section-header text-center">
+                    <h6 class="section-title">Destination</h6>
+                    <h1 class="section-subtitle">Popular Destinations</h1>
+                </div>
+                <div class="row">
+                    <div class="column large">
+                        <div class="destination-item">
+                            <img src="../assets/destination-1.jpg" alt="Thailand">
+                            <div class="discount-label">30% OFF</div>
+                            <div class="location-label">Thailand</div>
+                        </div>
+                    </div>
+                    <div class="column medium">
+                        <div class="destination-item">
+                            <img src="../assets/destination-2.jpg" alt="Malaysia">
+                            <div class="discount-label">25% OFF</div>
+                            <div class="location-label">Malaysia</div>
+                        </div>
+                    </div>
+                    <div class="column medium">
+                        <div class="destination-item">
+                            <img src="../assets/destination-3.jpg" alt="Australia">
+                            <div class="discount-label">35% OFF</div>
+                            <div class="location-label">Australia</div>
+                        </div>
+                    </div>
+                    <div class="column large">
+                        <div class="destination-item large">
+                            <img src="../assets/destination-4.jpg" alt="Indonesia">
+                            <div class="discount-label">20% OFF</div>
+                            <div class="location-label">Indonesia</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="package-section">
+            <div class="container">
+                <div class="text-center">
+                    <h6 class="section-title">Packages</h6>
+                    <h1 class="section-subtitle">Awesome Packages</h1>
+                </div>
+                <div class="row">
+                    <div class="column">
+                        <div class="package-item">
+                            <div class="image-container">
+                                <img src="../assets/package-1.jpg" alt="">
+                            </div>
+                            <div class="package-info">
+                                <small><i class="fa fa-map-marker-alt"></i> Thailand</small>
+                                <small><i class="fa fa-calendar-alt"></i> 3 days</small>
+                                <small><i class="fa fa-user"></i> 2 Person</small>
+                            </div>
+                            <div class="text-center">
+                                <h3>$149.00</h3>
+                                <div class="rating">
+                                    <small class="fa fa-star"></small>
+                                    <small class="fa fa-star"></small>
+                                    <small class="fa fa-star"></small>
+                                    <small class="fa fa-star"></small>
+                                    <small class="fa fa-star"></small>
+                                </div>
+                                <p>Tempor erat elitr rebum at clita. Diam dolor diam ipsum sit diam amet diam eos</p>
+                                <div class="button-group">
+                                    <a href="#" class="btn btn-read-more">Read More</a>
+                                    <a href="#" class="btn btn-book-now">Book Now</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="column">
+                        <div class="package-item">
+                            <div class="image-container">
+                                <img src="../assets/package-2.jpg" alt="">
+                            </div>
+                            <div class="package-info">
+                                <small><i class="fa fa-map-marker-alt"></i> Indonesia</small>
+                                <small><i class="fa fa-calendar-alt"></i> 3 days</small>
+                                <small><i class="fa fa-user"></i> 2 Person</small>
+                            </div>
+                            <div class="text-center">
+                                <h3>$139.00</h3>
+                                <div class="rating">
+                                    <small class="fa fa-star"></small>
+                                    <small class="fa fa-star"></small>
+                                    <small class="fa fa-star"></small>
+                                    <small class="fa fa-star"></small>
+                                    <small class="fa fa-star"></small>
+                                </div>
+                                <p>Tempor erat elitr rebum at clita. Diam dolor diam ipsum sit diam amet diam eos</p>
+                                <div class="button-group">
+                                    <a href="#" class="btn btn-read-more">Read More</a>
+                                    <a href="#" class="btn btn-book-now">Book Now</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="column">
+                        <div class="package-item">
+                            <div class="image-container">
+                                <img src="../assets/package-3.jpg" alt="">
+                            </div>
+                            <div class="package-info">
+                                <small><i class="fa fa-map-marker-alt"></i> Malaysia</small>
+                                <small><i class="fa fa-calendar-alt"></i> 3 days</small>
+                                <small><i class="fa fa-user"></i> 2 Person</small>
+                            </div>
+                            <div class="text-center">
+                                <h3>$189.00</h3>
+                                <div class="rating">
+                                    <small class="fa fa-star"></small>
+                                    <small class="fa fa-star"></small>
+                                    <small class="fa fa-star"></small>
+                                    <small class="fa fa-star"></small>
+                                    <small class="fa fa-star"></small>
+                                </div>
+                                <p>Tempor erat elitr rebum at clita. Diam dolor diam ipsum sit diam amet diam eos</p>
+                                <div class="button-group">
+                                    <a href="#" class="btn btn-read-more">Read More</a>
+                                    <a href="#" class="btn btn-book-now">Book Now</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+
+
+
+
+
     </section>
 
     <section class="section-2">
@@ -36,5 +292,65 @@
 
     </section>
 </main>
+
+
+<footer class="footer-section">
+    <div class="footer-content">
+        <div class="footer-columns">
+            <div class="footer-column">
+                <h4>Company</h4>
+                <a href="#">About Us</a>
+                <a href="#">Contact Us</a>
+                <a href="#">Privacy Policy</a>
+                <a href="#">Terms & Condition</a>
+                <a href="#">FAQs & Help</a>
+            </div>
+            <div class="footer-column">
+                <h4>Contact</h4>
+                <p><i class="fa fa-map-marker-alt"></i> 1Dolor amet sit</p>
+                <p><i class="fa fa-phone-alt"></i> Dolor amet sit</p>
+                <p><i class="fa fa-envelope"></i> Dolor amet sit</p>
+                <div class="social-icons">
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#"><i class="fab fa-youtube"></i></a>
+                    <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                </div>
+            </div>
+            <div class="footer-column">
+                <h4>Gallery</h4>
+                <div class="gallery">
+                    <img src="../assets/package-1.jpg" alt="">
+                    <img src="../assets/package-2.jpg" alt="">
+                    <img src="../assets/package-3.jpg" alt="">
+                    <img src="../assets/package-2.jpg" alt="">
+                    <img src="../assets/package-3.jpg" alt="">
+                    <img src="../assets/package-1.jpg" alt="">
+                </div>
+            </div>
+            <div class="footer-column">
+                <h4>Newsletter</h4>
+                <p>Dolor amet sit justo amet elitr clita ipsum elitr est.</p>
+                <div class="newsletter">
+                    <input type="text" placeholder="Your email">
+                    <button>SignUp</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="footer-bottom">
+        <div class="footer-copyright">
+            <p>&copy; <a href="#">Dolor amet sit</a>, Dolor amet sit.</p>
+            <p>Designed By <a href="https://htmlcodex.com">HTML Codex</a></p>
+        </div>
+        <div class="footer-menu">
+            <a href="#">Home</a>
+            <a href="#">Cookies</a>
+            <a href="#">Help</a>
+            <a href="#">FAQs</a>
+        </div>
+    </div>
+</footer>
+
 </body>
 </html>
