@@ -89,6 +89,7 @@ label {
     display: flex;
     width: 100%;
     gap: 10px; 
+    box-sizing: border-box;
 }
 
 a {
@@ -116,4 +117,16 @@ a.secondary {
 
 a.secondary:hover {
     background-color: #d00000;
+}
+
+
+
+@media screen and (max-width: 950px) {
+    .image-section {
+        display: none;
+    }
+    .container {
+    
+        margin: 20px;
+    }
 }
