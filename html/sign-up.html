@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../css/session.css">
     <title>sign up</title>
+    <script src="/js/sign-in.js"></script>
 </head>
 <body>
     <div class="container">
@@ -16,13 +17,13 @@
         </div>
 
         
-        <div class="login">
+        <div class="session">
             <h2>REGISTRO</h2>
             <p>Por favor complete sus datos para registrarse</p>
             
-            <label for="name">Nombre</label>
+            <label for="username">Nombre de usuario</label>
             
-            <input id="name" placeholder="Ingresa tu nombre completo">
+            <input id="username" placeholder="Ingresa tu nombre de usuario">
 
 
             <label for="email">Correo</label>
@@ -32,7 +33,7 @@
             <input type="password" id="password" placeholder="••••••••••••••••••">
 
             <div class="a-container">
-                <a href="home.html" class="primary">Registrarse</a>
+                <a class="primary" onclick="validate()">Registrarse</a>
                 <a href="index.html" class="secondary">volver</a>
             </div>
         </div>
