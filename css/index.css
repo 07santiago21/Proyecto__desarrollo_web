@@ -17,13 +17,12 @@ body {
 /* Header */
 .header {
     background-color: #f8f8f8;
-    padding: 20px;
+
     display: flex;
     justify-content: space-between;
     align-items: center;
     width: 100%;
-    min-height: 75px;
-    max-height: 80px;
+
 }
 
 .logo-side {
@@ -79,6 +78,7 @@ body {
     align-items: center;
     justify-content: flex-end;
     gap: 10px;
+    margin-right: 40px;
 }
 
 .login-button, .signup-button {
@@ -291,19 +291,23 @@ body {
     flex: 1;
     min-height: 400px;
     position: relative;
+    margin-right: 40px; /* Añadir margen entre la imagen y el texto */
 }
 
 .about-image {
     width: 100%;
     height: 100%;
     overflow: hidden;
+    display: flex; /* Asegura que el contenedor mantenga sus proporciones */
+    justify-content: center;
+    align-items: center;
 }
 
 .about-image img {
     width: 100%;
     height: 100%;
     object-fit: cover;
-    position: absolute;
+    position: relative;
 }
 
 .about-content-wrapper {
@@ -486,9 +490,7 @@ body {
 }
 
 
-.package-section {
-    padding: 50px 0;
-}
+
 
 .text-center {
     text-align: center;
@@ -524,38 +526,7 @@ body {
     flex-direction: column;
 }
 
-.package-item {
-    border: 1px solid #ddd;
-    border-radius: 10px;
-    overflow: hidden;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    transition: transform 0.3s, box-shadow 0.3s;
-}
 
-.image-container img {
-    width: 100%;
-    height: auto;
-    object-fit: cover;
-    display: block;
-}
-
-.package-info {
-    display: flex;
-    border-bottom: 1px solid #ddd;
-}
-
-.package-info small {
-    flex: 1;
-    text-align: center;
-    padding: 10px 0;
-    border-right: 1px solid #ddd;
-    font-size: 14px;
-    color: #333;
-}
-
-.package-info small:last-child {
-    border-right: none;
-}
 
 .text-center h3 {
     font-size: 24px;
@@ -599,15 +570,7 @@ body {
     border-radius: 30px 0 0 30px;
 }
 
-.btn-book-now {
-    background-color: #e74c3c;
-    border-radius: 0 30px 30px 0;
-}
 
-.package-item:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
-}
 
 .footer-section {
     background-color: #333;
@@ -667,17 +630,7 @@ body {
     color: #3498db;
 }
 
-.gallery {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 10px;
-}
 
-.gallery img {
-    width: calc(33.333% - 10px);
-    border: 2px solid #ddd;
-    padding: 3px;
-}
 
 .newsletter {
     position: relative;
