@@ -1,0 +1,376 @@
+<header class="header">
+    <section class="header">
+        <section class="logo-side">
+            <img src="../assets/th-Photoroom.png" alt="logo" class="logo-image">
+        </section>
+        <section class="nav-bar">
+            <nav>
+                <ul>
+                    <li><a href="#">Inicio</a></li>
+                    <li><a href="#">Sobre nosotros</a></li>
+                    <li><a href="#">Productos</a></li>
+                    <li><a href="#">Contacto</a></li>
+                </ul>
+            </nav>
+        </section>
+        <section class="profile-settings">
+            <button class="login-button">Login</button>
+            <button class="signup-button">Sign up</button>
+        </section>
+    </section>
+</header>
+<!--/* Header */
+.header {
+    background-color: #f8f8f8;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+
+}
+
+.logo-side {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.logo-image {
+    width: 120px;
+    height: auto;
+    object-fit: contain;
+}
+
+.nav-bar {
+    flex: 3;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+}
+
+.nav-bar ul {
+    list-style-type: none;
+    display: flex;
+    padding-left: 0;
+}
+
+.nav-bar ul li {
+    font-size: 18px;
+    margin: 0 15px;
+    transition: color 0.3s, transform 0.3s;
+}
+
+.nav-bar ul li a {
+    text-decoration: none;
+    color: #333;
+    padding: 10px 15px;
+    border-radius: 5px;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.nav-bar ul li a:hover {
+    background-color: #3498db;
+    color: #fff;
+    transform: scale(1.05);
+}
+
+.profile-settings {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 10px;
+    margin-right: 40px;
+}
+
+.login-button, .signup-button {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.3s;
+}
+
+.login-button {
+    background-color: #3498db;
+    color: #fff;
+}
+
+.login-button:hover {
+    background-color: #2980b9;
+    transform: scale(1.05);
+}
+
+.signup-button {
+    background-color: #ecf0f1;
+    color: #2c3e50;
+}
+
+.signup-button:hover {
+    background-color: #bdc3c7;
+    transform: scale(1.05);
+}-->
+
+
+<footer class="footer-section">
+    <div class="footer-content">
+        <div class="footer-columns">
+            <div class="footer-column">
+                <h4>Datos de nosotros</h4>
+                <a href="#">Sobre nosotros</a>
+                <a href="#">Contactanos</a>
+                <a href="#">Politica de privacidad</a>
+                <a href="#">Terminos y condiciones</a>
+                <a href="#">Preguntas frecuentes y ayuda</a>
+            </div>
+            <div class="footer-column">
+                <h4>Contact</h4>
+                <p><i class="fa fa-map-marker-alt"></i> Ubicacion</p>
+                <p><i class="fa fa-phone-alt"></i> Telefono</p>
+                <p><i class="fa fa-envelope"></i> email</p>
+                <div class="social-icons">
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#"><i class="fab fa-youtube"></i></a>
+                    <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                </div>
+            </div>
+
+            <div class="footer-column">
+                <h4>Ingresa</h4>
+                <p>Dejanos tu email e ingresa</p>
+                <div class="newsletter">
+                    <input type="text" placeholder="Tu email">
+                    <button>SignUp</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="footer-bottom">
+        <div class="footer-copyright">
+            <p>&copy; <a href="#">copyright.com</a>Conoce nuestras politicas de copyRight</p>
+            
+        </div>
+        <div class="footer-menu">
+            <a href="#">Home</a>
+            <a href="#">Cookies</a>
+            <a href="#">Ayuda</a>
+            <a href="#">Preguntas frecuentes</a>
+        </div>
+    </div>
+</footer>
+
+
+<!--.footer-section {
+    background-color: #333;
+    color: #ddd;
+    padding: 50px 0;
+    margin-top: 50px;
+}
+
+.footer-content {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    padding: 0 20px;
+}
+
+.footer-columns {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.footer-column {
+    flex: 1;
+    min-width: 200px;
+}
+
+.footer-column h4 {
+    color: #fff;
+    margin-bottom: 20px;
+}
+
+.footer-column a {
+    display: block;
+    color: #ddd;
+    text-decoration: none;
+    margin-bottom: 10px;
+    font-size: 14px;
+}
+
+.footer-column a:hover {
+    color: #3498db;
+}
+
+.footer-column p {
+    margin-bottom: 10px;
+    font-size: 14px;
+}
+
+.social-icons a {
+    display: inline-block;
+    margin-right: 10px;
+    color: #ddd;
+    font-size: 18px;
+}
+
+.social-icons a:hover {
+    color: #3498db;
+}
+
+
+
+.newsletter {
+    position: relative;
+    max-width: 400px;
+    margin-top: 20px;
+}
+
+.newsletter input {
+    width: 100%;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    font-size: 14px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.newsletter button {
+    position: absolute;
+    right: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    padding: 10px 20px;
+    border: none;
+    background-color: #3498db;
+    color: #fff;
+    border-radius: 0 4px 4px 0;
+    cursor: pointer;
+}
+
+.footer-bottom {
+    padding: 20px 0;
+    background-color: #222;
+    text-align: center;
+}
+
+.footer-copyright p {
+    margin: 0;
+    font-size: 14px;
+}
+
+.footer-menu {
+    margin-top: 10px;
+}
+
+.footer-menu a {
+    color: #ddd;
+    text-decoration: none;
+    margin: 0 10px;
+    font-size: 14px;
+}
+
+.footer-menu a:hover {
+    color: #3498db;
+}-->
+
+
+
+
+<section class="hero-header">
+    <div class="hero-container">
+        <div class="hero-row">
+            <div class="hero-content">
+                <h1 class="hero-title">Disfruta tus vacaciones con nostros</h1>
+                <p class="hero-subtitle">
+                    bienvenidos a stayNest, la plataforma que hara realidad todos tus viajes
+                </p>
+                <div class="hero-search-container">
+                    <input
+                            class="hero-search-input"
+                            type="text"
+                            placeholder="A donde quieres ir?"
+                    >
+                    <button type="button" class="hero-search-button">Buscar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+<!--
+/* Hero Header */
+.hero-header {
+    background-color: #3498db;
+    padding: 50px 0;
+    margin-bottom: 50px;
+    width: 100%;
+}
+
+.hero-container {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.hero-row {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.hero-content {
+    text-align: center;
+    color: white;
+}
+
+.hero-title {
+    font-size: 48px;
+    margin-bottom: 20px;
+    animation: slideInDown 1s;
+}
+
+.hero-subtitle {
+    font-size: 20px;
+    margin-bottom: 30px;
+    animation: slideInDown 1s;
+}
+
+.hero-search-container {
+    position: relative;
+    width: 75%;
+    margin: 0 auto;
+    animation: slideInDown 1s;
+}
+
+.hero-search-input {
+    width: 100%;
+    padding: 15px;
+    border-radius: 50px;
+    border: none;
+    padding-left: 20px;
+    padding-right: 60px;
+}
+
+.hero-search-button {
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: #2980b9;
+    color: white;
+    border: none;
+    border-radius: 50px;
+    padding: 10px 20px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.hero-search-button:hover {
+    background-color: #1f5f7a;
+}-->
