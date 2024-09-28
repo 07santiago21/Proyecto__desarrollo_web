@@ -1,0 +1,13 @@
+import { Routes } from '@angular/router';
+import { HomeComponent } from './home/home.component';
+import { IndexComponent } from './index/index.component';
+import { signalSetFn } from '@angular/core/primitives/signals';
+import { SignInComponent } from './sign-in/sign-in.component';
+import { SignUpComponent } from './sign-up/sign-up.component'; 
+
+export const routes: Routes = [
+  { path: '', component: HomeComponent },
+  {path: 'index', component: IndexComponent},
+  {path: 'sign-in', component: SignInComponent},
+  {path: 'sign-up', component: SignUpComponent}
+];
