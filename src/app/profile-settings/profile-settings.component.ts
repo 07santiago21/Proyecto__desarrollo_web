@@ -14,7 +14,7 @@ export class ProfileSettingsComponent {
     img: 'path/to/image.jpg',
     firstName: 'John',
     lastName: 'Doe',
-    email: 'john.doe@example.com',
+    email: 'john.doe@example.com', //se deben poner las reservas que tiene un usuario?
     
   };
 
