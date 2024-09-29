@@ -1,11 +1,11 @@
 import { Routes } from '@angular/router';
-import { HomeComponent } from './home/home.component';
+import { HomeComponent } from './features/home/pages/home/home.component';
 import { IndexComponent } from './index/index.component';
 import { signalSetFn } from '@angular/core/primitives/signals';
-import { SignInComponent } from './sign-in/sign-in.component';
-import { SignUpComponent } from './sign-up/sign-up.component'; 
-import { ProfileSettingsComponent } from './profile-settings/profile-settings.component';
-import { OwnerFilteringComponent } from './owner-filtering/owner-filtering.component';
+import { SignInComponent } from './auth/pages/sign-in/sign-in.component';
+import { SignUpComponent } from './auth/pages/sign-up/sign-up.component'; 
+import { ProfileSettingsComponent } from './features/profile-settings/pages/profile-settings/profile-settings.component';
+import { OwnerFilteringComponent } from './features/owner-filtering/pages/owner-filtering/owner-filtering.component';
 
 export const routes: Routes = [
   { path: '', component: HomeComponent },
