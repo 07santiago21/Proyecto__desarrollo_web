@@ -1,33 +1,5 @@
 <header>
-  <section class="header">
-    <section class="logo-side">
-      <img src="/assets/th-Photoroom.png" alt="logo" class="logo-image" />
-    </section>
-    <section class="nav-bar">
-      <nav>
-        <div class="burger-menu">
-          <span></span>
-          <span></span>
-          <span></span>
-        </div>
-        <ul class="nav-links">
-          <li><a href="#">Inicio</a></li>
-          <li><a href="#">Sobre nosotros</a></li>
-          <li><a href="#">Productos</a></li>
-          <li><a href="#">Contacto</a></li>
-        </ul>
-      </nav>
-    </section>
-
-    <section class="burger-menu">
-      <button class="burger-button" (click)="toggleMenu()">☰</button>
-      <nav class="burger-nav" [ngClass]="{ show: menuVisible }">
-        <ul>
-          <li><a href="#">Editar perfil</a></li>
-        </ul>
-      </nav>
-    </section>
-  </section>
+  <app-header></app-header>
 </header>
 
 <main>
