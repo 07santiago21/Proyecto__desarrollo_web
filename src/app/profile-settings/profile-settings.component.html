@@ -1,0 +1,32 @@
+<div class="container">
+    <div class="profile-info">
+      <img [src]="profile.img" width="90">
+      <span>{{ profile.firstName }} {{ profile.lastName }}</span>
+      <span>{{ profile.email }}</span>
+      
+    </div>
+    <div class="form-section">
+      <div class="header">
+        <div class="back-to-home">
+          <i class="fa fa-long-arrow-left"></i>
+          <h6>Back to home</h6>
+        </div>
+        <h6>Edit Profile</h6>
+      </div>
+      <div class="form-group">
+        <span>My old name: {{ profile.firstName }}</span>
+        <input type="text" placeholder="First name" [(ngModel)]="profile.firstName">
+        <span>My old last name: {{ profile.lastName }}</span>
+        <input type="text" placeholder="Last name" [(ngModel)]="profile.lastName">
+      </div>
+      <div class="form-group">
+        <span>My old email: {{ profile.email }}</span>
+        <input type="text" placeholder="Email" [(ngModel)]="profile.email">
+    
+      </div>
+      
+      <div class="save-btn">
+        <button type="button" (click)="saveProfile()">Save Profile</button>
+      </div>
+    </div>
+  </div>
