@@ -1,12 +1,11 @@
 import { Component } from '@angular/core';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-owner-filtering',
-  standalone: true,
-  imports: [],
   templateUrl: './owner-filtering.component.html',
-  styleUrl: './owner-filtering.component.css'
+  styleUrls: ['./owner-filtering.component.css'],
+  standalone: true,
+  imports: [CommonModule]
 })
-export class OwnerFilteringComponent {
-
-}
+export class OwnerFilteringComponent { }
