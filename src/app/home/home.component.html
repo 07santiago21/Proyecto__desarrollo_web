@@ -18,7 +18,16 @@
         </ul>
       </nav>
     </section>
-    <section class="profile-settings"></section>
+    
+    <section class="burger-menu">
+      <button class="burger-button" (click)="toggleMenu()">☰</button>
+      <nav class="burger-nav" [ngClass]="{'show': menuVisible}">
+        <ul>
+          <li><a href="#">Editar perfil</a></li>
+        </ul>
+      </nav>
+    </section>
+    
   </section>
 </header>
 

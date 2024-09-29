@@ -408,3 +408,46 @@ body {
 .footer-menu a:hover {
     color: #3498db;
 }
+
+
+.burger-menu {
+    position: relative;
+    display: block; /* Always show the burger menu */
+  }
+  
+  .burger-button {
+    font-size: 24px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    margin-right: 50px;
+    padding: 20px;
+  }
+  
+  .burger-nav {
+    display: none; /* Hide by default */
+    position: absolute;  
+    background-color: white;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    z-index: 1;
+  }
+  
+  .burger-nav.show {
+    display: block; /* Show the burger menu when the 'show' class is added */
+  }
+  
+  .burger-nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+  
+  .burger-nav li {
+    padding: 12px 16px;
+  }
+  
+  .burger-nav li a {
+    text-decoration: none;
+    color: black;
+    display: block;
+  }
