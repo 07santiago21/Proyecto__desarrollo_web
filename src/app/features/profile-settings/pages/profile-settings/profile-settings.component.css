@@ -89,21 +89,25 @@
 }
 
 /* Form Group Styles */
-.form-group {
+.form-grid {
   display: grid;
   grid-template-columns: 1fr 1fr; /* Two columns */
   gap: 1rem; /* Gap between grid items */
-  margin-bottom: 2rem; /* Space between form groups */
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
 }
 
 .form-group span {
-  grid-column: span 2; /* Span both columns */
+  margin-bottom: 5px;
   font-size: 1rem;
   color: #7f8c8d; /* Subtle gray for secondary text */
 }
 
-.form-group input {
-  width: 100%;
+.form-group input,
+.form-group textarea {
   padding: 0.9rem;
   font-size: 1rem;
   border: 2px solid #ecf0f1; /* Softer border with better contrast */
@@ -112,19 +116,26 @@
   transition: border-color 0.3s ease, box-shadow 0.3s ease;
 }
 
-.form-group input:focus {
+.form-group input:focus,
+.form-group textarea:focus {
   border-color: #3498db; /* Light blue border on focus */
   box-shadow: 0 0 10px rgba(52, 152, 219, 0.2); /* Soft focus shadow */
   outline: none;
 }
 
-.form-section .save-btn {
-  text-align: right;
+.form-group input[type="checkbox"] {
+  width: auto;
+  height: auto;
 }
 
-.form-section .save-btn button {
-  padding: 0.75rem 1.5rem;
-  font-size: 1.1rem;
+.save-btn {
+  margin-top: 20px;
+  text-align: center;
+}
+
+.save-btn button {
+  padding: 10px 20px;
+  font-size: 16px;
   font-weight: 600;
   background-color: #3498db; /* Flat, stylish blue */
   color: white;
@@ -134,7 +145,7 @@
   transition: background-color 0.3s ease, box-shadow 0.3s ease;
 }
 
-.form-section .save-btn button:hover {
+.save-btn button:hover {
   background-color: #2980b9; /* Darker blue on hover */
   box-shadow: 0 4px 10px rgba(41, 128, 185, 0.3); /* Add shadow on hover */
 }
