@@ -4,7 +4,7 @@ import { IndexComponent } from './index/index.component';
 import { signalSetFn } from '@angular/core/primitives/signals';
 import { SignInComponent } from './auth/pages/sign-in/sign-in.component';
 import { SignUpComponent } from './auth/pages/sign-up/sign-up.component'; 
-import { ProfileSettingsComponent } from './features/profile-settings/pages/profile-settings/profile-settings.component';
+import { ProfileSettingsComponent } from './features/profile/pages/profile-settings/profile-settings.component';
 import { OwnerFilteringComponent } from './features/owner-filtering/pages/owner-filtering/owner-filtering.component';
 
 export const routes: Routes = [

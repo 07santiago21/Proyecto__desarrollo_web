@@ -37,7 +37,6 @@ export class UserService {
 
   }
 
-
   private setUser(user:User){
     localStorage.setItem('loggedUser', JSON.stringify(user));
     this.userSignal.set(user);
