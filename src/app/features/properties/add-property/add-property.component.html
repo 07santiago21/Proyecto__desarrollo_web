@@ -1,1 +1,58 @@
-<p>add-property works!</p>
+<div class="container">
+    <form (ngSubmit)="onSubmit()" class="property-form" #propertyForm="ngForm">
+        <div class="image-upload">
+            <label for="imageInput">
+                <span class="plus-icon">+</span>
+                <input type="file" id="imageInput" (change)="onFileSelected($event)" accept="image/*" />
+            </label>
+            <img *ngIf="imagePreview" [src]="imagePreview" alt="Imagen de la propiedad" />
+        </div>
+
+        <div class="form-group">
+            <label for="nombre">Nombre de la propiedad:</label>
+            <input
+                type="text"
+                id="nombre"
+                name="nombre"
+                [(ngModel)]="property.nombre"
+                placeholder="Nombre de la propiedad"
+                required
+                #nombre="ngModel"
+            />
+            <div *ngIf="nombre.invalid && nombre.touched" class="error">El nombre es requerido.</div>
+        </div>
+
+        <div class="form-group">
+            <label for="precio">Precio:</label>
+            <input
+                type="text"
+                id="precio"
+                name="precio"
+                [(ngModel)]="property.precio"
+                placeholder="Precio"
+                required
+                #precio="ngModel"
+            />
+            <div *ngIf="precio.invalid && precio.touched" class="error">El precio es requerido.</div>
+        </div>
+
+        <div class="form-group">
+            <label for="lugar">Lugar:</label>
+            <input
+                type="text"
+                id="lugar"
+                name="lugar"
+                [(ngModel)]="property.lugar"
+                placeholder="Lugar"
+                required
+                #lugar="ngModel"
+            />
+            <div *ngIf="lugar.invalid && lugar.touched" class="error">El lugar es requerido.</div>
+        </div>
+
+        <div class="button-group">
+            <button type="reset" class="btn btn-secondary">Cancelar</button>
+            <button type="submit" class="btn btn-primary" [disabled]="propertyForm.invalid">Crear</button>
+        </div>
+    </form>
+</div>
