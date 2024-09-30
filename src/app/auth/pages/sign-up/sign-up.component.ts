@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input, Output, EventEmitter } from '@angular/core';
 import { FormBuilder, FormGroup, Validators, ReactiveFormsModule } from '@angular/forms'; // Import necessary modules
 import { Router } from '@angular/router'; // Import Router
 import { CommonModule } from '@angular/common'; // Import CommonModule
@@ -11,6 +11,9 @@ import { CommonModule } from '@angular/common'; // Import CommonModule
   styleUrls: ['./sign-up.component.css']
 })
 export class SignUpComponent {
+  @Input() userData: any; // Input property to accept user data
+  @Output() formSubmit = new EventEmitter<any>(); // Output event to emit form data
+
   signUpForm: FormGroup;
 
   constructor(private fb: FormBuilder, private router: Router) {
@@ -24,10 +27,16 @@ export class SignUpComponent {
     });
   }
 
+  ngOnChanges() {
+    if (this.userData) {
+      this.signUpForm.patchValue(this.userData); // Pre-fill form with user data
+    }
+  }
+
   saveProfile() {
     if (this.signUpForm.valid) {
+      this.formSubmit.emit(this.signUpForm.value); // Emit form data
       console.log('Profile saved', this.signUpForm.value);
-      // Add logic to handle user creation, e.g., call a service to save the user
     } else {
       console.log('Form is invalid');
     }
