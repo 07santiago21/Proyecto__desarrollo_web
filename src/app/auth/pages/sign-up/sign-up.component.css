@@ -7,47 +7,6 @@
     padding: 3rem;
   }
   
-  /* Profile Info Styles */
-  .profile-info {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding: 3rem 0;
-    background-color: #ffffff; /* White for a clean profile area */
-    border-radius: 1rem; /* Larger border radius for a softer look */
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08); /* Soft shadow */
-    transition: box-shadow 0.3s ease; /* Add transition for hover effect */
-  }
-  
-  .profile-info:hover {
-    box-shadow: 0 12px 25px rgba(0, 0, 0, 0.15); /* Slight hover effect */
-  }
-  
-  .profile-info img {
-    border-radius: 50%;
-    margin-top: 1.5rem;
-    width: 120px; /* Larger, sharper image */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Stronger shadow for focus */
-    transition: transform 0.3s ease; /* Animation for hover effect */
-  }
-  
-  .profile-info img:hover {
-    transform: scale(1.05); /* Slight zoom-in on hover */
-  }
-  
-  .profile-info span {
-    margin-top: 1rem;
-    font-size: 1.4rem; /* Increase text size for emphasis */
-    font-weight: 700; /* Bold for stronger readability */
-    color: #2c3e50; /* Darker color for a modern, clean look */
-  }
-  
-  .profile-info .email, .profile-info .location {
-    font-size: 1rem;
-    margin-top: 0.25rem;
-    color: #7f8c8d; /* Subtle gray for secondary text */
-  }
-  
   /* Form Section Styles */
   .form-section {
     margin-top: 2rem;
@@ -71,11 +30,15 @@
     font-size: 1.2rem;
     color: #3498db; /* Lighter blue for a refreshing look */
     cursor: pointer;
-    transition: color 0.3s ease;
+    transition: color 0.3s ease, transform 0.1s ease;
   }
   
   .form-section .back-to-home:hover {
     color: #2980b9; /* Darker blue on hover */
+  }
+  
+  .form-section .back-to-home:active {
+    transform: scale(0.95); /* Slightly shrink on click */
   }
   
   .form-section .back-to-home i {
@@ -142,10 +105,14 @@
     border: none;
     border-radius: 0.75rem;
     cursor: pointer;
-    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+    transition: background-color 0.3s ease, box-shadow 0.3s ease, transform 0.1s ease;
   }
   
   .save-btn button:hover {
     background-color: #2980b9; /* Darker blue on hover */
     box-shadow: 0 4px 10px rgba(41, 128, 185, 0.3); /* Add shadow on hover */
+  }
+  
+  .save-btn button:active {
+    transform: scale(0.95); /* Slightly shrink on click */
   }
