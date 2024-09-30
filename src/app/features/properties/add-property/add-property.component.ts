@@ -13,8 +13,16 @@ export class AddPropertyComponent {
   property = {
     nombre: '',
     precio: '',
-    lugar: ''
-    //poner mas campos ahora
+    lugar: '',
+    title: '',
+    description: '',
+    address: '',
+    latitude: '',
+    longitude: '',
+    price_per_night: '',
+    num_bedrooms: '',
+    num_bathrooms: '',
+    max_guests: ''
   };
   imagePreview: string | ArrayBuffer | null = null;
 
