@@ -9,15 +9,19 @@
   <div class="session">
     <h2>INICIO SESIÓN</h2>
     <p>Por favor complete sus datos para ingresar</p>
-    <label for="username">Nombre de usuario</label>
-    <input type="username" id="username" placeholder="Nombre de usuario" />
+    <form [formGroup]="signInForm">
+      <label for="username">Nombre de usuario</label>
+      <input type="username" id="username" formControlName="userName" placeholder="Nombre de usuario" />
 
-    <label for="password">Contraseña</label>
-    <input type="password" id="password" placeholder="••••••••••••••••••" />
+      <label for="password">Contraseña</label>
+      <input type="password" id="password" formControlName="password" placeholder="••••••••••••••••••" />
+    </form>
 
     <div class="a-container">
-      <a class="primary">Ingresar</a>
+
+      <a (click)="onLogin()" class="primary">Ingresar</a>
       <a class="secondary">Registrarse</a>
+      
     </div>
   </div>
 </div>
