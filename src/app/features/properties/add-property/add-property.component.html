@@ -1,11 +1,12 @@
 <div class="everything">
-    <form (ngSubmit)="onSubmit()" class="property-form" #propertyForm="ngForm">
+    <p>Create a new property to rent</p>
+    <form class="property-form">
         <div class="image-upload">
             <label for="imageInput">
                 <span class="plus-icon">+</span>
-                <input type="file" id="imageInput" (change)="onFileSelected($event)" accept="image/*" />
+                <input type="file" id="imageInput" onchange="onFileSelected(event)" accept="image/*" />
             </label>
-            <img *ngIf="imagePreview" [src]="imagePreview" alt="Imagen de la propiedad" />
+            <img id="imagePreview" alt="Imagen de la propiedad" style="display: none;" />
         </div>
 
         <div class="form-group">
@@ -14,12 +15,10 @@
                 type="text"
                 id="nombre"
                 name="nombre"
-                [(ngModel)]="property.nombre"
                 placeholder="Nombre de la propiedad"
                 required
-                #nombre="ngModel"
             />
-            <div *ngIf="nombre.invalid && nombre.touched" class="error">El nombre es requerido.</div>
+            <div class="error" style="display: none;">El nombre es requerido.</div>
         </div>
 
         <div class="form-group">
@@ -28,12 +27,10 @@
                 type="text"
                 id="precio"
                 name="precio"
-                [(ngModel)]="property.precio"
                 placeholder="Precio"
                 required
-                #precio="ngModel"
             />
-            <div *ngIf="precio.invalid && precio.touched" class="error">El precio es requerido.</div>
+            <div class="error" style="display: none;">El precio es requerido.</div>
         </div>
 
         <div class="form-group">
@@ -42,12 +39,10 @@
                 type="text"
                 id="lugar"
                 name="lugar"
-                [(ngModel)]="property.lugar"
                 placeholder="Lugar"
                 required
-                #lugar="ngModel"
             />
-            <div *ngIf="lugar.invalid && lugar.touched" class="error">El lugar es requerido.</div>
+            <div class="error" style="display: none;">El lugar es requerido.</div>
         </div>
 
         <div class="form-group">
@@ -56,12 +51,10 @@
                 type="text"
                 id="title"
                 name="title"
-                [(ngModel)]="property.title"
                 placeholder="Título de la propiedad"
                 required
-                #title="ngModel"
             />
-            <div *ngIf="title.invalid && title.touched" class="error">El título es requerido.</div>
+            <div class="error" style="display: none;">El título es requerido.</div>
         </div>
 
         <div class="form-group">
@@ -69,12 +62,10 @@
             <textarea
                 id="description"
                 name="description"
-                [(ngModel)]="property.description"
                 placeholder="Descripción de la propiedad"
                 required
-                #description="ngModel"
             ></textarea>
-            <div *ngIf="description.invalid && description.touched" class="error">La descripción es requerida.</div>
+            <div class="error" style="display: none;">La descripción es requerida.</div>
         </div>
 
         <div class="form-group">
@@ -83,12 +74,10 @@
                 type="text"
                 id="address"
                 name="address"
-                [(ngModel)]="property.address"
                 placeholder="Dirección de la propiedad"
                 required
-                #address="ngModel"
             />
-            <div *ngIf="address.invalid && address.touched" class="error">La dirección es requerida.</div>
+            <div class="error" style="display: none;">La dirección es requerida.</div>
         </div>
 
         <div class="form-group">
@@ -97,12 +86,10 @@
                 type="text"
                 id="latitude"
                 name="latitude"
-                [(ngModel)]="property.latitude"
                 placeholder="Latitud de la propiedad"
                 required
-                #latitude="ngModel"
             />
-            <div *ngIf="latitude.invalid && latitude.touched" class="error">La latitud es requerida.</div>
+            <div class="error" style="display: none;">La latitud es requerida.</div>
         </div>
 
         <div class="form-group">
@@ -111,12 +98,10 @@
                 type="text"
                 id="longitude"
                 name="longitude"
-                [(ngModel)]="property.longitude"
                 placeholder="Longitud de la propiedad"
                 required
-                #longitude="ngModel"
             />
-            <div *ngIf="longitude.invalid && longitude.touched" class="error">La longitud es requerida.</div>
+            <div class="error" style="display: none;">La longitud es requerida.</div>
         </div>
 
         <div class="form-group">
@@ -125,12 +110,10 @@
                 type="text"
                 id="price_per_night"
                 name="price_per_night"
-                [(ngModel)]="property.price_per_night"
                 placeholder="Precio por noche"
                 required
-                #price_per_night="ngModel"
             />
-            <div *ngIf="price_per_night.invalid && price_per_night.touched" class="error">El precio por noche es requerido.</div>
+            <div class="error" style="display: none;">El precio por noche es requerido.</div>
         </div>
 
         <div class="form-group">
@@ -139,12 +122,10 @@
                 type="text"
                 id="num_bedrooms"
                 name="num_bedrooms"
-                [(ngModel)]="property.num_bedrooms"
                 placeholder="Número de habitaciones"
                 required
-                #num_bedrooms="ngModel"
             />
-            <div *ngIf="num_bedrooms.invalid && num_bedrooms.touched" class="error">El número de habitaciones es requerido.</div>
+            <div class="error" style="display: none;">El número de habitaciones es requerido.</div>
         </div>
 
         <div class="form-group">
@@ -153,12 +134,10 @@
                 type="text"
                 id="num_bathrooms"
                 name="num_bathrooms"
-                [(ngModel)]="property.num_bathrooms"
                 placeholder="Número de baños"
                 required
-                #num_bathrooms="ngModel"
             />
-            <div *ngIf="num_bathrooms.invalid && num_bathrooms.touched" class="error">El número de baños es requerido.</div>
+            <div class="error" style="display: none;">El número de baños es requerido.</div>
         </div>
 
         <div class="form-group">
@@ -167,17 +146,15 @@
                 type="text"
                 id="max_guests"
                 name="max_guests"
-                [(ngModel)]="property.max_guests"
                 placeholder="Capacidad máxima de huéspedes"
                 required
-                #max_guests="ngModel"
             />
-            <div *ngIf="max_guests.invalid && max_guests.touched" class="error">La capacidad máxima de huéspedes es requerida.</div>
+            <div class="error" style="display: none;">La capacidad máxima de huéspedes es requerida.</div>
         </div>
 
         <div class="button-group">
             <button type="reset" class="btn btn-secondary">Cancelar</button>
-            <button type="submit" class="btn btn-primary" [disabled]="propertyForm.invalid">Crear</button>
+            <button type="submit" class="btn btn-primary">Crear</button>
         </div>
     </form>
 </div>

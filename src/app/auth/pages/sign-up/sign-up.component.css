@@ -3,32 +3,32 @@
     margin-top: 4rem;
     background: url('https://images.unsplash.com/photo-1547626740-02cb6aed9ef8?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D') no-repeat center center;
     background-size: cover;
-    border-radius: 1rem; /* More rounded corners */
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1); /* More pronounced shadow for depth */
+    border-radius: 1rem; 
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1); 
     padding: 3rem;
     position: relative;
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 100vh; /* Full viewport height */
+    height: 100vh; 
   }
   
-  /* Form Section Styles */
+  
   .form-section {
     margin-top: 2rem;
-    background-color: rgba(255, 255, 255, 0.8); /* White background with 80% opacity */
+    background-color: rgba(255, 255, 255, 0.8); 
     border-radius: 1rem;
     padding: 2.5rem;
     box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
     width: 100%;
-    max-width: 700px; /* Adjust as needed */
+    max-width: 700px; 
   }
   
   .form-section .header {
     display: flex;
     justify-content: space-between;
     margin-bottom: 1.5rem;
-    border-bottom: 2px solid #ecf0f1; /* Subtle separator */
+    border-bottom: 2px solid #ecf0f1; 
     padding-bottom: 1rem;
   }
   
@@ -36,17 +36,17 @@
     display: flex;
     align-items: center;
     font-size: 1.2rem;
-    color: #3498db; /* Lighter blue for a refreshing look */
+    color: #3498db; 
     cursor: pointer;
     transition: color 0.3s ease, transform 0.1s ease;
   }
   
   .form-section .back-to-home:hover {
-    color: #2980b9; /* Darker blue on hover */
+    color: #2980b9; 
   }
   
   .form-section .back-to-home:active {
-    transform: scale(0.95); /* Slightly shrink on click */
+    transform: scale(0.95); 
   }
   
   .form-section .back-to-home i {
@@ -56,14 +56,14 @@
   .form-section .edit-profile {
     font-size: 1.2rem;
     font-weight: 600;
-    color: #2c3e50; /* Darker, elegant color */
+    color: #2c3e50; 
   }
   
-  /* Form Group Styles */
+  
   .form-grid {
     display: grid;
-    grid-template-columns: 1fr 1fr; /* Two columns */
-    gap: 1rem; /* Gap between grid items */
+    grid-template-columns: 1fr 1fr; 
+    gap: 1rem; 
   }
   
   .form-group {
@@ -74,23 +74,23 @@
   .form-group span {
     margin-bottom: 5px;
     font-size: 1rem;
-    color: #7f8c8d; /* Subtle gray for secondary text */
+    color: #7f8c8d; 
   }
   
   .form-group input,
   .form-group textarea {
     padding: 0.9rem;
     font-size: 1rem;
-    border: 2px solid #ecf0f1; /* Softer border with better contrast */
-    border-radius: 0.75rem; /* More rounded for modern look */
-    background-color: #f9f9f9; /* Light background for input fields */
+    border: 2px solid #ecf0f1; 
+    border-radius: 0.75rem; 
+    background-color: #f9f9f9; 
     transition: border-color 0.3s ease, box-shadow 0.3s ease;
   }
   
   .form-group input:focus,
   .form-group textarea:focus {
-    border-color: #3498db; /* Light blue border on focus */
-    box-shadow: 0 0 10px rgba(52, 152, 219, 0.2); /* Soft focus shadow */
+    border-color: #3498db; 
+    box-shadow: 0 0 10px rgba(52, 152, 219, 0.2); 
     outline: none;
   }
   
@@ -108,7 +108,7 @@
     padding: 10px 20px;
     font-size: 16px;
     font-weight: 600;
-    background-color: #3498db; /* Flat, stylish blue */
+    background-color: #3498db; 
     color: white;
     border: none;
     border-radius: 0.75rem;
@@ -117,10 +117,10 @@
   }
   
   .save-btn button:hover {
-    background-color: #2980b9; /* Darker blue on hover */
-    box-shadow: 0 4px 10px rgba(41, 128, 185, 0.3); /* Add shadow on hover */
+    background-color: #2980b9;
+    box-shadow: 0 4px 10px rgba(41, 128, 185, 0.3); 
   }
   
   .save-btn button:active {
-    transform: scale(0.95); /* Slightly shrink on click */
+    transform: scale(0.95); 
   }
