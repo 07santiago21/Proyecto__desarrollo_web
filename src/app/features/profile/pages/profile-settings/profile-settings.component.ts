@@ -5,6 +5,7 @@ import { Validators, FormBuilder } from '@angular/forms';
 import { UserService } from '../../../../auth/services/user.service';
 import { Signal } from '@angular/core';
 import { SignalUser } from '../../../../auth/interfaces/signal-user';
+import { ProfileService } from '../../services/profile.service';
 
 
 
@@ -20,11 +21,15 @@ export class ProfileSettingsComponent {
 
 
   editProfileForm:FormGroup;
-  userSignal!: Signal<SignalUser>;
+  userSignal!: Signal<SignalUser>
+  profileServices
 
-  constructor(private fb: FormBuilder, private router: Router,private userService: UserService) {
+  constructor(private fb: FormBuilder, private router: Router,private userService: UserService,private profileService:ProfileService) {
 
     this.userSignal = this.userService.userSignal;
+    userService.getUser()
+    this.profileServices = this.profileService
+  
 
     this.editProfileForm = this.fb.group({
     userName: ['', [Validators.required, Validators.minLength(8), Validators.maxLength(12)]],
@@ -45,13 +50,31 @@ export class ProfileSettingsComponent {
 
 
   onEditProfile(){
+
     let userName = this.editProfileForm.value.userName||'';
     let password = this.editProfileForm.value.password||''; 
     let email = this.editProfileForm.value.email||'';
     let bio = this.editProfileForm.value.bio||'';
     let profile_picture = this.editProfileForm.value.profile_picture||'';
 
-    console.log(userName,password,email,bio,profile_picture)
+    var user_id = this.userSignal().user_id
+    if (user_id){
+      this.profileServices.updateUser(user_id,userName,password,email,bio,profile_picture)
+    }
 
+
+
+
+
+    console.log(userName,password,email,bio,profile_picture)
+    console.log(this.userSignal())
   }
+
+
+
+  
+  
+
+
+
 }
