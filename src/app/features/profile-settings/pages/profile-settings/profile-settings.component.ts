@@ -14,11 +14,11 @@ export class ProfileSettingsComponent implements OnInit {
   profileForm: FormGroup;
 
   userData = {
-    username: 'a',
-    email: 'b',
-    password: 'c',
-    profile_picture: 'mp',
-    bio: 'anita.',
+    username: '',
+    email: '',
+    password: '',
+    profile_picture: '',
+    bio: '',
     is_owner: true
   };
 
@@ -34,19 +34,19 @@ export class ProfileSettingsComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.profileForm.patchValue(this.userData); // Pre-fill form with user data
+    this.profileForm.patchValue(this.userData); // 
   }
 
   saveProfile() {
     if (this.profileForm.valid) {
       console.log('Profile saved', this.profileForm.value);
-      // Add logic to handle updated user data, e.g., call a service to save the user
+      //
     } else {
       console.log('Form is invalid');
     }
   }
 
   goBackToHome() {
-    this.router.navigate(['/home']); // Adjust the route as necessary
+    this.router.navigate(['/home']); //
   }
 }
