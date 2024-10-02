@@ -3,6 +3,7 @@
     color: #ddd;
     padding: 50px 0;
     margin-top: 50px;
+    width: 100%; /* Ensure the footer takes up the full width */
 }
 
 .footer-content {
@@ -55,8 +56,6 @@
 .social-icons a:hover {
     color: #3498db;
 }
-
-
 
 .newsletter {
     position: relative;

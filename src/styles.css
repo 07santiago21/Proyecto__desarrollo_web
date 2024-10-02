@@ -6,13 +6,26 @@
 }
 
 html, body {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    width: 100%;
     margin: 0 !important;
     padding: 0 !important;
-    width: 100%;
     overflow-x: hidden; /* Prevent horizontal scrolling */
 }
 
 body {
-    margin: 0 !important; /* Ensure no margin on body */
-    padding: 0 !important; /* Ensure no padding on body */
+    display: flex;
+    flex-direction: column;
+}
+
+app-root {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+}
+
+#content {
+    flex: 1; /* This will make the content area take up the remaining space */
 }
