@@ -17,17 +17,20 @@ export class UserService {
   login(userName: string, password: string): LoginResponse{
     const usuarios: Array<User> = JSON.parse(localStorage.getItem("users")|| "[]")
 
-
     if (!(usuarios.length === 0)){
 
         const existe = usuarios.find(item => item.username === userName  && item.password === password)
         if(existe){
           this.setUser(existe);
+          
+          console.log('Signal updated:', this.userSignal());
+          
           return {
             success: true
           }
 
         }
+
     }
     
     return {
