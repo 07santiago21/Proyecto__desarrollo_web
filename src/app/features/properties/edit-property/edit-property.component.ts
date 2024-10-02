@@ -25,13 +25,18 @@ export class EditPropertyComponent implements OnInit {
     private fb: FormBuilder
   ) {
     this.editPropertyForm = this.fb.group({
+      nombre: ['', [Validators.required]],
+      precio: ['', [Validators.required]],
+      lugar: ['', [Validators.required]],
       title: ['', [Validators.required]],
       description: ['', [Validators.required]],
       address: ['', [Validators.required]],
-      pricePerNight: ['', [Validators.required]],
-      rooms: ['', [Validators.required]],
-      bathrooms: ['', [Validators.required]],
-      maxCapacity: ['', [Validators.required]],
+      latitude: ['', [Validators.required]],
+      longitude: ['', [Validators.required]],
+      price_per_night: ['', [Validators.required]],
+      num_bedrooms: ['', [Validators.required]],
+      num_bathrooms: ['', [Validators.required]],
+      max_guests: ['', [Validators.required]],
       photos: ['', [Validators.required]]
     });
   }
