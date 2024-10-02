@@ -1,46 +1,48 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Signal, computed } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { CommonModule } from '@angular/common';
-import { FormsModule } from '@angular/forms'; // Import FormsModule
-import { HttpClientModule } from '@angular/common/http'; // Import HttpClientModule
+import { FormsModule, ReactiveFormsModule, FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
 import { PropertyService } from './../services/property.service';
+import { Property } from './../interfaces/property.interface'; // Import the Property interface
 
 @Component({
   selector: 'app-edit-property',
   templateUrl: './edit-property.component.html',
   styleUrls: ['./edit-property.component.css'],
   standalone: true,
-  imports: [CommonModule, FormsModule, HttpClientModule], // Add FormsModule and HttpClientModule to imports
-  providers: [PropertyService] // Ensure PropertyService is provided
+  imports: [CommonModule, FormsModule, ReactiveFormsModule, HttpClientModule],
+  providers: [PropertyService]
 })
 export class EditPropertyComponent implements OnInit {
-  property: any = {
-    nombre: 'void',
-    precio: 'void',
-    lugar: 'void',
-    title: 'void',
-    description: 'void',
-    address: 'void',
-    latitude: 'void',
-    longitude: 'void',
-    price_per_night: 'void',
-    num_bedrooms: 'void',
-    num_bathrooms: 'void',
-    max_guests: 'void'
-  };
+  propertySignal!: Signal<Property>; 
+  editPropertyForm: FormGroup;
   imagePreview: string | ArrayBuffer | null = null;
 
   constructor(
     private route: ActivatedRoute,
-    private propertyService: PropertyService
-  ) {}
+    private propertyService: PropertyService,
+    private fb: FormBuilder
+  ) {
+    this.editPropertyForm = this.fb.group({
+      title: ['', [Validators.required]],
+      description: ['', [Validators.required]],
+      address: ['', [Validators.required]],
+      pricePerNight: ['', [Validators.required]],
+      rooms: ['', [Validators.required]],
+      bathrooms: ['', [Validators.required]],
+      maxCapacity: ['', [Validators.required]],
+      photos: ['', [Validators.required]]
+    });
+  }
 
   ngOnInit(): void {
     const propertyId = this.route.snapshot.paramMap.get('id');
     if (propertyId) {
-      this.propertyService.getPropertyById(propertyId).subscribe(data => {
+      this.propertyService.getPropertyById(propertyId).subscribe((data: Property) => {
         if (data) {
-          this.property = data;
+          this.propertySignal = computed(() => data);
+          this.editPropertyForm.patchValue(data);
         }
       });
     }
@@ -49,7 +51,7 @@ export class EditPropertyComponent implements OnInit {
   onSubmit() {
     const propertyId = this.route.snapshot.paramMap.get('id');
     if (propertyId) {
-      this.propertyService.updateProperty(propertyId, this.property).subscribe(response => {
+      this.propertyService.updateProperty(propertyId, this.editPropertyForm.value).subscribe(response => {
         console.log('Property updated:', response);
         // Add logic to handle successful update
       });
