@@ -1,18 +1,26 @@
 /* Container Styles */
 .container {
+  display: flex;
+  flex-direction: column;
   margin-top: 4rem;
   padding: 3rem;
-  width: 75%;
+  width: 100%;
   justify-content: center;
+  align-items: center;
+  background: url('https://images.pexels.com/photos/842711/pexels-photo-842711.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1');
+  background-size: cover; /* Cover the entire area */
+  background-position: center; /* Center the image */
 }
 
 /* Profile Info Styles */
 .profile-info {
+  margin-right: 16rem;
+  width: 55%;
   display: flex;
   flex-direction: column;
   align-items: center;
   padding: 3rem 0;
-  background-color: #ffffff; /* White for a clean profile area */
+  background-color: rgba(255, 255, 255, 0.8); /* White with opacity for translucency */
   border-radius: 2rem; /* Larger border radius for a softer look */
   box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08); /* Soft shadow */
   transition: box-shadow 0.3s ease; /* Add transition for hover effect */
@@ -49,8 +57,9 @@
 
 /* Form Section Styles */
 .form-section {
+  width: 75%; /* Match the width of .profile-info */
   margin-top: 2rem;
-  background-color: #ffffff;
+  background-color: rgba(255, 255, 255, 0.8); /* White with opacity for translucency */
   border-radius: 1rem;
   padding: 2.5rem;
   box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
@@ -62,6 +71,7 @@
   margin-bottom: 1.5rem;
   border-bottom: 2px solid #ecf0f1; /* Subtle separator */
   padding-bottom: 1rem;
+  padding-top: 1rem;
 }
 
 /* Go Back to Home Button Styles */
@@ -109,8 +119,6 @@
   transform: scale(1.05); /* Slight zoom-in on hover */
 }
 
-
-
 /* Form Group Styles */
 .form-group {
   display: grid;
@@ -140,8 +148,6 @@
   box-shadow: 0 0 10px rgba(52, 152, 219, 0.2); /* Soft focus shadow */
   outline: none;
 }
-
-
 
 /* Save Button Styles */
 .save-btn {
