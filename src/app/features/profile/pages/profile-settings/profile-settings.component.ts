@@ -27,13 +27,15 @@ export class ProfileSettingsComponent {
   constructor(private fb: FormBuilder, private router: Router,private userService: UserService,private profileService:ProfileService) {
 
     this.userSignal = this.userService.userSignal;
-    userService.getUser()
     this.profileServices = this.profileService
   
 
     this.editProfileForm = this.fb.group({
     userName: ['', [Validators.required, Validators.minLength(8), Validators.maxLength(12)]],
-    email: [''] 
+    email: [''],
+    password: [''],
+    bio: [''],
+    profile_picture: [''],
   });
 
 }
@@ -57,12 +59,14 @@ export class ProfileSettingsComponent {
     let bio = this.editProfileForm.value.bio||'';
     let profile_picture = this.editProfileForm.value.profile_picture||'';
 
+
+
     var user_id = this.userSignal().user_id
     if (user_id){
       this.profileServices.updateUser(user_id,userName,password,email,bio,profile_picture)
     }
 
-
+    
 
 
 

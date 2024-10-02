@@ -8,10 +8,11 @@ import { UserService } from '../../../auth/services/user.service';
 export class ProfileService {
 
   userSignal
-
+  
   constructor(private userService: UserService) {
 
     this.userSignal = this.userService.userSignal;
+    userService.getUser()
   
   }
 

@@ -51,6 +51,7 @@ export class UserService {
       const user = JSON.parse(userSrt);
       this.userSignal.set(user);
     }
+    return this.userSignal;
   }
 
   usernameValidator(): ValidatorFn{

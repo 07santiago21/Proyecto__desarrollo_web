@@ -16,7 +16,6 @@ export class SignInComponent {
   
 
   constructor(private fb:FormBuilder, private router:Router, private userService:UserService){
-    userService.getUser()
     this.signInForm = this.fb.group({
       userName:['', [Validators.required, this.userService.usernameValidator]],
       password:['', [Validators.required, this.userService.passwordValidator]]
