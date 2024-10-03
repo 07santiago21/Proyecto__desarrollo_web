@@ -1,40 +1,59 @@
 import { Component } from '@angular/core';
-import { FormsModule } from '@angular/forms';
+import { FormBuilder, FormGroup, FormsModule, ReactiveFormsModule, Validators } from '@angular/forms';
 import { CommonModule } from '@angular/common'; 
+import { HttpClientModule } from '@angular/common/http'; // Import HttpClientModule
+import Swal from 'sweetalert2';
+import { PropertyService } from '../services/property.service';
 
 @Component({
   selector: 'app-add-property',
   standalone: true,
-  imports: [FormsModule, CommonModule], 
+  imports: [FormsModule, CommonModule, ReactiveFormsModule, HttpClientModule], // Add HttpClientModule to imports
   templateUrl: './add-property.component.html',
-  styleUrls: ['./add-property.component.css']
+  styleUrls: ['./add-property.component.css'],
+  providers: [PropertyService] // Ensure PropertyService is provided
 })
 export class AddPropertyComponent {
-  property = {
-    nombre: '',
-    precio: '',
-    lugar: '',
-    title: '',
-    description: '',
-    address: '',
-    latitude: '',
-    longitude: '',
-    price_per_night: '',
-    num_bedrooms: '',
-    num_bathrooms: '',
-    max_guests: ''
-  };
+  addPropertyForm: FormGroup;
   imagePreview: string | ArrayBuffer | null = null;
 
-  // Método que se ejecuta cuando se envía el formulario
+  constructor(private fb: FormBuilder, private propertyService: PropertyService) {
+    this.addPropertyForm = this.fb.group({
+      user_id: ['', [Validators.required]],
+      title: ['', [Validators.required]],
+      description: ['', [Validators.required]],
+      address: ['', [Validators.required]],
+      latitude: ['', [Validators.required]],
+      longitude: ['', [Validators.required]], 
+      price_per_night: ['', [Validators.required]],
+      rooms: ['', [Validators.required]],
+      bathrooms: ['', [Validators.required]],
+      max_capacity: ['', [Validators.required]],
+      photos: ['', [Validators.required]],
+    });
+  }
+
   onSubmit() {
-    if (this.property.nombre && this.property.precio && this.property.lugar) {
-      console.log('Formulario enviado:', this.property);
-      // poner logica ak
+    if (!this.addPropertyForm.valid) {
+      Swal.fire({
+        text: 'Debe diligenciar todos los campos',
+        icon: 'error'
+      });
+      return;
+    }
+
+    const property = this.addPropertyForm.value;
+
+    let response = this.propertyService.addProperty(property);
+
+    if (response) {
+      Swal.fire({
+        text: 'Propiedad añadida',
+        icon: 'success'
+      });
     }
   }
 
-  // Metodo para manejar la selección de la imagen y mostrar una vista previa
   onFileSelected(event: Event) {
     const input = event.target as HTMLInputElement;
     if (input.files && input.files[0]) {

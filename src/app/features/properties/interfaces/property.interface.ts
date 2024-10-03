@@ -1,4 +1,5 @@
 export interface Property {
+    property_id: number;
     listing_id: number;
     title: string;
     description: string;
