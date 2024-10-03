@@ -9,4 +9,7 @@ export interface Property{
     bathrooms: number;
     max_capacity: number;
     photos: string;
+    latitude: string; // quitar en form
+    longitude: string; // ...
+
 }

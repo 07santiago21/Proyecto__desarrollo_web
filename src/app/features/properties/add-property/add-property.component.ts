@@ -1,36 +1,40 @@
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, FormsModule, ReactiveFormsModule, Validators } from '@angular/forms';
 import { CommonModule } from '@angular/common'; 
+import { HttpClientModule } from '@angular/common/http'; // Import HttpClientModule
 import Swal from 'sweetalert2';
 import { PropertyService } from '../services/property.service';
 
 @Component({
   selector: 'app-add-property',
   standalone: true,
-  imports: [FormsModule, CommonModule, ReactiveFormsModule], 
+  imports: [FormsModule, CommonModule, ReactiveFormsModule, HttpClientModule], // Add HttpClientModule to imports
   templateUrl: './add-property.component.html',
-  styleUrls: ['./add-property.component.css']
+  styleUrls: ['./add-property.component.css'],
+  providers: [PropertyService] // Ensure PropertyService is provided
 })
 export class AddPropertyComponent {
+  addPropertyForm: FormGroup;
+  imagePreview: string | ArrayBuffer | null = null;
 
-  AddPropertyForm: FormGroup;
-
-  constructor(private fb: FormBuilder, private propertyService: PropertyService){
-    this.AddPropertyForm = this.fb.group({
+  constructor(private fb: FormBuilder, private propertyService: PropertyService) {
+    this.addPropertyForm = this.fb.group({
       user_id: ['', [Validators.required]],
       title: ['', [Validators.required]],
       description: ['', [Validators.required]],
       address: ['', [Validators.required]],
+      latitude: ['', [Validators.required]],
+      longitude: ['', [Validators.required]], 
       price_per_night: ['', [Validators.required]],
       rooms: ['', [Validators.required]],
       bathrooms: ['', [Validators.required]],
       max_capacity: ['', [Validators.required]],
-      photos: [[], [Validators.required]]
+      photos: ['', [Validators.required]],
     });
   }
 
-  onSubmit(){
-    if(!this.AddPropertyForm.valid){
+  onSubmit() {
+    if (!this.addPropertyForm.valid) {
       Swal.fire({
         text: 'Debe diligenciar todos los campos',
         icon: 'error'
@@ -38,37 +42,29 @@ export class AddPropertyComponent {
       return;
     }
 
-    let property_id = 0
-    let user_id = this.AddPropertyForm.value.user_id || '';
-    let title = this.AddPropertyForm.value.title || '';
-    let description = this.AddPropertyForm.value.description || '';
-    let address = this.AddPropertyForm.value.address || '';
-    let price_per_night = this.AddPropertyForm.value.price_per_night || 0;
-    let rooms = this.AddPropertyForm.value.rooms || 0;
-    let bathrooms = this.AddPropertyForm.value.bathrooms || 0;
-    let max_capacity = this.AddPropertyForm.value.max_capacity || 0;
-    let photos = this.AddPropertyForm.value.photos || [];
+    const property = this.addPropertyForm.value;
 
-    let response = this.propertyService.addProperty({
-      property_id,
-      user_id,
-      title,
-      description,
-      address,
-      price_per_night,
-      rooms,
-      bathrooms,
-      max_capacity,
-      photos
-    })
+    let response = this.propertyService.addProperty(property);
 
-    if(response){
+    if (response) {
       Swal.fire({
-        text: 'Propiedad añadida'
-      })
+        text: 'Propiedad añadida',
+        icon: 'success'
+      });
     }
-
   }
 
-  
+  onFileSelected(event: Event) {
+    const input = event.target as HTMLInputElement;
+    if (input.files && input.files[0]) {
+      const file = input.files[0];
+      const reader = new FileReader();
+
+      reader.onload = () => {
+        this.imagePreview = reader.result;
+      };
+
+      reader.readAsDataURL(file);
+    }
+  }
 }
