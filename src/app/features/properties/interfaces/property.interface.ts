@@ -1,11 +1,15 @@
 export interface Property{
-    listing_id: number;
+    property_id: number;
+    user_id: number;
     title: string;
     description: string;
     address: string;
-    pricePerNight: number;
+    price_per_night: number;
     rooms: number;
     bathrooms: number;
-    maxCapacity: number;
+    max_capacity: number;
     photos: string;
+    latitude: string; // quitar en form
+    longitude: string; // ...
+
 }
