@@ -2,7 +2,7 @@ import { Injectable, signal } from '@angular/core';
 import { SignalUser } from '../interfaces/signal-user';
 import { Signal } from '@angular/core';
 import { User } from '../interfaces/user';
-import { LoginResponse } from '../interfaces/auth_response';
+import { LoginResponse, SignUpResponse } from '../interfaces/auth_response';
 import { AbstractControl, ValidationErrors, ValidatorFn } from '@angular/forms';
 
 
@@ -37,6 +37,32 @@ export class UserService {
       success: false,
       message: 'Usuario o contraseña incorrectos'
     }    
+
+  }
+
+  register(user:User): SignUpResponse{
+    let usersArray = localStorage.getItem('users');
+    let users: Array<User> = usersArray ? JSON.parse(usersArray): [];
+
+    let existe = users.find(item => item.username.toLowerCase() === user.username.toLowerCase());
+
+    if(existe){
+      return {
+        success: false,
+        message: 'Usuario ya existe'
+      }
+    }
+
+    
+
+    users.push(user);
+    localStorage.setItem('users', JSON.stringify(users));
+
+    this.setUser(user);
+
+    return {
+      success: true
+    };
 
   }
 
