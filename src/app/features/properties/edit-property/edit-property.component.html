@@ -8,8 +8,9 @@
             </label>
             <img *ngIf="imagePreview" [src]="imagePreview" alt="Imagen de la propiedad" />
         </div>
-
+      
         <div class="form-group">
+
             <label for="nombre">Nombre de la propiedad:</label>
             <input
                 type="text"
@@ -20,8 +21,9 @@
             />
             <div *ngIf="editPropertyForm.get('nombre')?.invalid && editPropertyForm.get('nombre')?.touched" class="error">El nombre es requerido.</div>
         </div>
-
+  
         <div class="form-group">
+
             <label for="precio">Precio:</label>
             <input
                 type="text"
@@ -45,9 +47,11 @@
                 required
             />
             <div *ngIf="editPropertyForm.get('title')?.invalid && editPropertyForm.get('title')?.touched" class="error">El título es requerido.</div>
-        </div>
 
+        </div>
+  
         <div class="form-group">
+
             <label for="description">Descripción de la propiedad:</label>
             <textarea
                 id="description"
@@ -56,9 +60,11 @@
                 required
             ></textarea>
             <div *ngIf="editPropertyForm.get('description')?.invalid && editPropertyForm.get('description')?.touched" class="error">La descripción es requerida.</div>
-        </div>
 
+        </div>
+  
         <div class="form-group">
+
             <label for="address">Dirección de la propiedad:</label>
             <input
                 type="text"
@@ -68,9 +74,12 @@
                 required
             />
             <div *ngIf="editPropertyForm.get('address')?.invalid && editPropertyForm.get('address')?.touched" class="error">La dirección es requerida.</div>
-        </div>
 
+        </div>
+  
         <div class="form-group">
+
+          
             <label for="latitude">Latitud de la propiedad:</label>
             <input
                 type="text"
@@ -81,8 +90,9 @@
             />
             <div *ngIf="editPropertyForm.get('latitude')?.invalid && editPropertyForm.get('latitude')?.touched" class="error">La latitud es requerida.</div>
         </div>
-
+  
         <div class="form-group">
+
             <label for="longitude">Longitud de la propiedad:</label>
             <input
                 type="text"
@@ -92,9 +102,11 @@
                 required
             />
             <div *ngIf="editPropertyForm.get('longitude')?.invalid && editPropertyForm.get('longitude')?.touched" class="error">La longitud es requerida.</div>
-        </div>
 
+        </div>
+  
         <div class="form-group">
+
             <label for="price_per_night">Precio por noche:</label>
             <input
                 type="text"
@@ -104,8 +116,9 @@
                 required
             />
             <div *ngIf="editPropertyForm.get('price_per_night')?.invalid && editPropertyForm.get('price_per_night')?.touched" class="error">El precio por noche es requerido.</div>
-        </div>
 
+        </div>
+  
         <div class="form-group">
             <label for="num_bedrooms">Número de habitaciones:</label>
             <input
@@ -116,9 +129,11 @@
                 required
             />
             <div *ngIf="editPropertyForm.get('num_bedrooms')?.invalid && editPropertyForm.get('num_bedrooms')?.touched" class="error">El número de habitaciones es requerido.</div>
-        </div>
 
+        </div>
+  
         <div class="form-group">
+
             <label for="num_bathrooms">Número de baños:</label>
             <input
                 type="text"
@@ -128,9 +143,11 @@
                 required
             />
             <div *ngIf="editPropertyForm.get('num_bathrooms')?.invalid && editPropertyForm.get('num_bathrooms')?.touched" class="error">El número de baños es requerido.</div>
-        </div>
 
+        </div>
+  
         <div class="form-group">
+          
             <label for="max_guests">Capacidad máxima de huéspedes:</label>
             <input
                 type="text"
@@ -145,6 +162,8 @@
         <div class="button-group">
             <button type="reset" class="btn btn-secondary">Cancelar</button>
             <button type="submit" class="btn btn-primary" [disabled]="editPropertyForm.invalid">Actualizar Información</button>
+
         </div>
+      </div>
     </form>
-</div>
+  </div>
