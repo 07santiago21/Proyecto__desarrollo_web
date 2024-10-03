@@ -1,69 +1,58 @@
-import { Component, OnInit, Signal, computed } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
-import { CommonModule } from '@angular/common';
-import { FormsModule, ReactiveFormsModule, FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { HttpClientModule } from '@angular/common/http';
-import { PropertyService } from './../services/property.service';
-import { Property } from './../interfaces/property.interface'; // Import the Property interface
+import { PropertyService } from '../services/property.service';
+import { Property } from '../interfaces/property.interface';
 
 @Component({
   selector: 'app-edit-property',
   templateUrl: './edit-property.component.html',
-  styleUrls: ['./edit-property.component.css'],
-  standalone: true,
-  imports: [CommonModule, FormsModule, ReactiveFormsModule, HttpClientModule],
-  providers: [PropertyService]
+  styleUrls: ['./edit-property.component.css']
 })
 export class EditPropertyComponent implements OnInit {
-  propertySignal!: Signal<Property>; 
   editPropertyForm: FormGroup;
+  property!: Property; 
   imagePreview: string | ArrayBuffer | null = null;
 
   constructor(
+    private fb: FormBuilder,
     private route: ActivatedRoute,
-    private propertyService: PropertyService,
-    private fb: FormBuilder
+    private propertyService: PropertyService
   ) {
     this.editPropertyForm = this.fb.group({
-      nombre: ['', [Validators.required]],
-      precio: ['', [Validators.required]],
-      lugar: ['', [Validators.required]],
-      title: ['', [Validators.required]],
-      description: ['', [Validators.required]],
-      address: ['', [Validators.required]],
-      latitude: ['', [Validators.required]],
-      longitude: ['', [Validators.required]],
-      price_per_night: ['', [Validators.required]],
-      num_bedrooms: ['', [Validators.required]],
-      num_bathrooms: ['', [Validators.required]],
-      max_guests: ['', [Validators.required]],
-      photos: ['', [Validators.required]]
+      title: ['', Validators.required],
+      description: ['', Validators.required],
+      address: ['', Validators.required],
+      latitude: ['', Validators.required],
+      longitude: ['', Validators.required],
+      pricePerNight: ['', Validators.required],
+      rooms: ['', Validators.required],
+      bathrooms: ['', Validators.required],
+      maxCapacity: ['', Validators.required],
+      photos: ['', Validators.required]
     });
   }
 
   ngOnInit(): void {
-    const propertyId = this.route.snapshot.paramMap.get('id');
-    if (propertyId) {
-      this.propertyService.getPropertyById(propertyId).subscribe((data: Property) => {
-        if (data) {
-          this.propertySignal = computed(() => data);
-          this.editPropertyForm.patchValue(data);
-        }
+    const id = this.route.snapshot.paramMap.get('id');
+    if (id) {
+      this.propertyService.getPropertyById(id).subscribe((property: Property) => {
+        this.property = property;
+        this.editPropertyForm.patchValue(property);
       });
     }
   }
 
-  onSubmit() {
-    const propertyId = this.route.snapshot.paramMap.get('id');
-    if (propertyId) {
-      this.propertyService.updateProperty(propertyId, this.editPropertyForm.value).subscribe(response => {
-        console.log('Property updated:', response);
-        // Add logic to handle successful update
+  onSubmit(): void {
+    if (this.editPropertyForm.valid) {
+      const updatedProperty = this.editPropertyForm.value;
+      this.propertyService.updateProperty(this.property.listing_id.toString(), updatedProperty).subscribe(() => {
+        // Handle successful update
       });
     }
   }
 
-  onFileSelected(event: Event) {
+  onFileSelected(event: Event): void {
     const input = event.target as HTMLInputElement;
     if (input.files && input.files[0]) {
       const file = input.files[0];
