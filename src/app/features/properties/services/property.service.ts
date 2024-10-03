@@ -1,20 +1,29 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
+import { Property } from '../interfaces/property.interface';
+import { PropertyResponse } from '../interfaces/property_response.interface';
 
 @Injectable({
   providedIn: 'root'
 })
 export class PropertyService {
-  private apiUrl = 'http://your-api-url.com/properties'; // Replace with your API URL
 
-  constructor(private http: HttpClient) {}
+  addProperty(property:Property):PropertyResponse{
+    let propertiesArray = localStorage.getItem('properties');
+    let properties: Array<Property> = propertiesArray ? JSON.parse(propertiesArray): [];
 
-  getPropertyById(id: string): Observable<any> {
-    return this.http.get<any>(`${this.apiUrl}/${id}`);
+
+    let lastPropertyId = properties.length > 0 ? Math.max(...properties.map((prop: Property) => prop.property_id)) + 1 : 1;
+
+    property.property_id = lastPropertyId;
+    
+    properties.push(property);
+    localStorage.setItem('properties', JSON.stringify(properties));
+    return{
+      success:true
+    }
+
   }
 
-  updateProperty(id: string, property: any): Observable<any> {
-    return this.http.put<any>(`${this.apiUrl}/${id}`, property);
-  }
 }
