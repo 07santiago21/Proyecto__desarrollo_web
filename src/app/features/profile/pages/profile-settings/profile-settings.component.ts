@@ -6,13 +6,18 @@ import { UserService } from '../../../../auth/services/user.service';
 import { Signal } from '@angular/core';
 import { SignalUser } from '../../../../auth/interfaces/signal-user';
 import { ProfileService } from '../../services/profile.service';
+import Swal from 'sweetalert2';
+import { HttpClientModule } from '@angular/common/http';
+
+
 
 
 
 @Component({
   selector: 'app-profile-settings',
   standalone: true,
-  imports: [FormsModule, ReactiveFormsModule, RouterModule], // Added FormsModule 
+  imports: [FormsModule, ReactiveFormsModule, RouterModule,HttpClientModule],
+  providers: [ProfileService],
   templateUrl: './profile-settings.component.html',
   styleUrls: ['./profile-settings.component.css']
 })
@@ -63,8 +68,16 @@ export class ProfileSettingsComponent {
 
     var user_id = this.userSignal().user_id
     if (user_id){
-      this.profileServices.updateUser(user_id,userName,password,email,bio,profile_picture)
+      const response = this.profileServices.updateUser(user_id,userName,password,email,bio,profile_picture)
+      
+      if (response) {
+        Swal.fire({
+          text: 'perfil editado',
+          icon: 'success'
+        });
+      }
     }
+
 
     
 

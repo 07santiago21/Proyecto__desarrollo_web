@@ -88,6 +88,8 @@ export class UserService {
     }
   }
 
+
+  
   passwordValidator(): ValidatorFn{
     return (control: AbstractControl): ValidationErrors | null => {
       const validPassword = /^(?=.*[A-Z])(?=.*[a-z])(?=.*[0-9])(?=.*[@*$#&])[A-Za-z0-9@$*#&]{12,20}$/.test(control.value);
