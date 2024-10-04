@@ -1,29 +1,28 @@
 <section class="header">
-  <section class="logo-side">
-    <img src="/assets/th-Photoroom.png" alt="logo" class="logo-image" />
+    <section class="logo-side">
+      <img src="/assets/th-Photoroom.png" alt="logo" class="logo-image" />
+    </section>
+    <section class="nav-bar">
+      <nav>
+        <div class="burger-menu">
+          <span></span>
+          <span></span>
+          <span></span>
+        </div>
+        <ul class="nav-links">
+          <li><a href="#">Inicio</a></li>
+          <li><a href="#">Sobre nosotros</a></li>
+          <li><a href="#">Productos</a></li>
+          <li><a href="#">Contacto</a></li>
+        </ul>
+      </nav>
+    </section>
+    <section class="burger-menu">
+      <button class="burger-button" (click)="toggleMenu()">☰</button>
+      <nav class="burger-nav" [ngClass]="{ show: menuVisible }">
+        <ul>
+          <li><a href="#">Editar perfil</a></li>
+        </ul>
+      </nav>
+    </section>
   </section>
-  <section class="nav-bar">
-    <nav>
-      <ul class="nav-links">
-        <li><a routerLink="/">Inicio</a></li>
-        <li><a routerLink="/about">Sobre nosotros</a></li>
-        <li><a routerLink="/products">Productos</a></li>
-        <li><a routerLink="/contact">Contacto</a></li>
-      </ul>
-    </nav>
-  </section>
-  <section *ngIf="isLoggedIn" class="burger-menu">
-    <button class="burger-button" (click)="toggleMenu()">☰</button>
-    <nav class="burger-nav" [ngClass]="{ show: menuVisible }">
-      <ul>
-        <li><a routerLink="/profile-settings">Editar perfil</a></li>
-        <li *ngIf="isOwner"><a routerLink="/owner-filtering">Gestion de propiedades</a></li>
-        <li><button (click)="logout()">Cerrar sesión</button></li>
-      </ul>
-    </nav>
-  </section>
-  <section *ngIf="!isLoggedIn" class="auth-buttons">
-    <button class="btn-sign-in" [routerLink]='["/sign-in"]'>iniciar</button>
-    <button class="btn-log-in" [routerLink]='["/sign-up"]'>registrarse</button>
-  </section>
-</section>

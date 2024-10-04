@@ -31,7 +31,7 @@ export class SignUpComponent {
   onRegister(){
     if(!this.signUpForm.valid){
       Swal.fire({
-        text: 'ingrese bien los datos',
+        text: 'Debe diligenciar todos los campos',
         icon: 'error'
       })
       return;
@@ -48,13 +48,7 @@ export class SignUpComponent {
 
     let response = this.userService.register({user_id, username, email, password, profile_picture, bio, is_owner})
     if(response.success){
-      if (response.is_owner){
-        this.router.navigateByUrl('/owner-filtering');
-      }
-      else{
-
-        this.router.navigateByUrl('/user');
-      }
+      this.goToUrl('')
     }else{
       Swal.fire({
         text: response.message,

@@ -9,7 +9,7 @@ import Swal from 'sweetalert2';
   standalone: true,
   imports: [ReactiveFormsModule, RouterModule],
   templateUrl: './sign-in.component.html',
-  styleUrls: ['./sign-in.component.css'] 
+  styleUrls: ['./sign-in.component.css'] // preguntar por tipo
 })
 export class SignInComponent {
   signInForm: FormGroup;
@@ -39,17 +39,8 @@ export class SignInComponent {
     let response = this.userService.login(userName, password);
 
     if (response.success){
-      if (response.is_owner){
-        this.router.navigateByUrl('/owner-filtering');
-      }
-      else{
-
-        this.router.navigateByUrl('/user');
-      }
-
+      this.router.navigateByUrl('');
     }else{
-
-
       Swal.fire({
         title: 'Ingreso',
         text: response.message,

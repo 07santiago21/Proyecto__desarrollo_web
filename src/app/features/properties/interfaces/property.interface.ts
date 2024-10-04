@@ -1,4 +1,3 @@
-
 export interface Property {
     user_id:number
     property_id: number;
@@ -13,5 +12,4 @@ export interface Property {
     bathrooms: number;
     max_capacity: number;
     photos: string;
-    [key: string]: any;
   }

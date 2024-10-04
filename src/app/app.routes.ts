@@ -1,4 +1,3 @@
-import { provideServerRendering } from '@angular/platform-server';
 import { Routes } from '@angular/router';
 import { HomeComponent } from './features/home/pages/home/home.component';
 import { IndexComponent } from './index/index.component';
@@ -8,15 +7,14 @@ import { SignUpComponent } from './auth/pages/sign-up/sign-up.component';
 import { ProfileSettingsComponent } from './features/profile/pages/profile-settings/profile-settings.component';
 import { OwnerFilteringComponent } from './features/owner-filtering/pages/owner-filtering/owner-filtering.component';
 import { AddPropertyComponent } from './features/properties/add-property/add-property.component';
-
 import { PropertyEditComponent } from './features/properties/property-edit/property-edit.component';
 import { DetailsComponent } from './features/properties/details/details.component';
 
 
 
 export const routes: Routes = [
-  { path: 'user', component: HomeComponent },
-  {path: '', component: IndexComponent},
+  {path: '', component: HomeComponent },
+  {path: 'index', component: IndexComponent},
   {path: 'sign-in', component: SignInComponent},
   {path: 'sign-up', component: SignUpComponent},
   {path: 'profile-settings', component: ProfileSettingsComponent},

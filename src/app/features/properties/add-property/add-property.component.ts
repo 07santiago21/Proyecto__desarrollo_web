@@ -1,25 +1,28 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, FormsModule, ReactiveFormsModule, Validators } from '@angular/forms';
 import { CommonModule } from '@angular/common'; 
-import { HttpClientModule } from '@angular/common/http'; // Import HttpClientModule
 import Swal from 'sweetalert2';
 import { PropertyService } from '../services/property.service';
+import { SupabaseService } from '../services/supabase.service';
+import { v4 as uuidv4 } from 'uuid';
 
 @Component({
   selector: 'app-add-property',
   standalone: true,
-  imports: [FormsModule, CommonModule, ReactiveFormsModule, HttpClientModule], 
+  imports: [FormsModule, CommonModule, ReactiveFormsModule],
   templateUrl: './add-property.component.html',
   styleUrls: ['./add-property.component.css'],
-  providers: [PropertyService] 
 })
 export class AddPropertyComponent {
   addPropertyForm: FormGroup;
-  imagePreview: string | ArrayBuffer | null = null;
+  selectedFile: File | null = null;
 
-  constructor(private fb: FormBuilder, private propertyService: PropertyService) {
+  constructor(
+    private fb: FormBuilder, 
+    private propertyService: PropertyService,
+    private supabaseService: SupabaseService // Inyección del servicio aquí
+  ) {
     this.addPropertyForm = this.fb.group({
-      
       title: ['', [Validators.required]],
       description: ['', [Validators.required]],
       address: ['', [Validators.required]],
@@ -43,30 +46,44 @@ export class AddPropertyComponent {
     }
 
     let property = this.addPropertyForm.value;
-    const user_id = this.propertyService.getUser_id()
-    property = {user_id ,...property}
+    const user_id = this.propertyService.getUser_id();
+    property = {user_id: user_id, ...property};
 
-    let response = this.propertyService.addProperty(property);
+    try {
+      let response = this.propertyService.addProperty(property);
 
-    if (response) {
-      Swal.fire({
-        text: 'Propiedad añadida',
-        icon: 'success'
-      });
+      if (response.success) {
+        Swal.fire({
+          text: 'Propiedad añadida',
+          icon: 'success'
+        });
+      }
+    } catch (error) {
+      console.error('error añadiendo la propiedad', error);
     }
   }
 
   onFileSelected(event: Event) {
-    const input = event.target as HTMLInputElement;
-    if (input.files && input.files[0]) {
-      const file = input.files[0];
-      const reader = new FileReader();
-
-      reader.onload = () => {
-        this.imagePreview = reader.result;
-      };
-
-      reader.readAsDataURL(file);
+    let inputFile = event.target as HTMLInputElement;
+    if (!inputFile.files || inputFile.files.length <= 0) {
+      return;
     }
+
+    this.selectedFile = inputFile.files[0];
   }
+
+  // uploadImage() {
+  //   if (!this.selectedFile) return;
+
+  //   const fileName = `${uuidv4()}.${this.selectedFile.name.split('.').pop()}`;
+  //   const foldername = 'property_images';
+
+  //   try {
+  //     const publicUrl = this.supabaseService.upload(this.selectedFile, fileName, foldername);
+  //     return publicUrl;
+  //   } catch (error) {
+  //     console.error('Error subiendo la imagen:', error);
+  //     return;
+  //   }
+  // }
 }

@@ -4,7 +4,6 @@ import { Signal } from '@angular/core';
 import { User } from '../interfaces/user';
 import { LoginResponse, SignUpResponse } from '../interfaces/auth_response';
 import { AbstractControl, ValidationErrors, ValidatorFn } from '@angular/forms';
-import { BehaviorSubject } from 'rxjs';
 
 
 
@@ -13,18 +12,7 @@ import { BehaviorSubject } from 'rxjs';
 })
 export class UserService {
 
-  private loggedInSubject = new BehaviorSubject<boolean>(false); 
-  private ownerSubject = new BehaviorSubject<boolean>(false); 
-
-
-  loggedIn$ = this.loggedInSubject.asObservable();
-  owner$ = this.ownerSubject.asObservable(); 
-  
-
   userSignal = signal<SignalUser>({user_id:null ,username: '',password:'',email:'',bio:'',is_owner:null,profile_picture:''});
-  isLoggedIn = false; 
-  isOwner = false; 
-  Swal: any;
 
   login(userName: string, password: string): LoginResponse{
     const usuarios: Array<User> = JSON.parse(localStorage.getItem("users")|| "[]")
@@ -35,14 +23,10 @@ export class UserService {
         if(existe){
           this.setUser(existe);
           
-          this.logged_user(existe.is_owner)
-          
           console.log('Signal updated:', this.userSignal());
           
           return {
-            success: true,
-            is_owner:existe.is_owner
-            
+            success: true
           }
 
         }
@@ -76,11 +60,8 @@ export class UserService {
 
     this.setUser(user);
 
-    this.logged_user(user.is_owner)
-
     return {
-      success: true,
-      is_owner: user.is_owner
+      success: true
     };
 
   }
@@ -89,11 +70,6 @@ export class UserService {
     localStorage.setItem('loggedUser', JSON.stringify(user));
     this.userSignal.set(user);
   }
-
-  removeUser() {
-    localStorage.removeItem('loggedUser');
-    this.userSignal.set({user_id:null ,username: '',password:'',email:'',bio:'',is_owner:null,profile_picture:''}); 
-}
 
   getUser(){
     const userSrt = localStorage.getItem('loggedUser');
@@ -121,31 +97,6 @@ export class UserService {
       return validPassword ? null : {invalidPassword: true};
     }
   }
-
-  
-
-
-  logout() {
-
-    this.isLoggedIn = false;
-    this.isOwner = false;
-    this.removeUser();
-
-    this.loggedInSubject.next(false); // Notifica que el usuario ha cerrado sesión
-    this.ownerSubject.next(false); // Notifica que el usuario no es propietario
-    
-  }
-
-
-  logged_user(is_owner:boolean){
-    this.isLoggedIn = true; // Asigna el valor a isLoggedIn
-    this.isOwner = is_owner; // Asigna el valor a isOwner
-
-    this.loggedInSubject.next(true); // Notifica el cambio
-    this.ownerSubject.next(is_owner); // Notifica el cambio
-
-  }
-
 
 
 
