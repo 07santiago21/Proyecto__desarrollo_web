@@ -15,11 +15,12 @@
   background-color: rgba(255, 255, 255, 0.8); /* Translucent background */
   border-radius: 8px;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-  max-width: 800px;
+  width: 45%;
   margin: 20px auto;
   display: flex;
   flex-direction: column;
   gap: 15px;
+  justify-content: center;
 }
 
 /* General text styles */
@@ -27,6 +28,7 @@
   font-size: 1rem;
   color: #333;
   margin-bottom: 1rem;
+  align-self: center;
 }
 
 /* Title styles */
