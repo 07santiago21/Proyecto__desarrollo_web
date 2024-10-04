@@ -13,7 +13,7 @@ import { EditPropertyComponent } from './features/properties/edit-property/edit-
 
 
 export const routes: Routes = [
-  { path: '', component: HomeComponent },
+  {path: '', component: HomeComponent },
   {path: 'index', component: IndexComponent},
   {path: 'sign-in', component: SignInComponent},
   {path: 'sign-up', component: SignUpComponent},
