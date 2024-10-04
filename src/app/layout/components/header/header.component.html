@@ -23,7 +23,7 @@
     </nav>
   </section>
   <section *ngIf="!isLoggedIn" class="auth-buttons">
-    <button class="btn-sign-in" routerLink="/sign-in">Sign In</button>
-    <button class="btn-log-in" routerLink="/sign-up">Log In</button>
+    <button class="btn-sign-in" [routerLink]='["/sign-in"]'>iniciar</button>
+    <button class="btn-log-in" [routerLink]='["/sign-up"]'>registrarse</button>
   </section>
 </section>

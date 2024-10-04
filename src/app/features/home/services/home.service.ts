@@ -7,6 +7,8 @@ import { User } from '../../../auth/interfaces/user';
 })
 export class HomeService {
 
+  order_by_asc = false;
+
   constructor() { }
 
   get_hotels(){
@@ -18,5 +20,23 @@ export class HomeService {
     let user: User = JSON.parse(localStorage.getItem("loggedUser")|| "[]")
     return user.user_id
   }
+
+  order_by_price(properties: Array<Property>){
+    
+    this.order_by_asc = !this.order_by_asc
+
+    return properties.sort((a, b) => {
+      if(this.order_by_asc){
+
+        return b.price_per_night-a.price_per_night;
+      }
+      else{
+        
+        return a.price_per_night - b.price_per_night;
+      }
+    });
+  }
+  
+
 
 }
