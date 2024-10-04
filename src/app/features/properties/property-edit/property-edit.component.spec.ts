@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { EditPropertyComponent } from './edit-property.component';
+import { PropertyEditComponent } from './property-edit.component';
 
-describe('EditPropertyComponent', () => {
-  let component: EditPropertyComponent;
-  let fixture: ComponentFixture<EditPropertyComponent>;
+describe('PropertyEditComponent', () => {
+  let component: PropertyEditComponent;
+  let fixture: ComponentFixture<PropertyEditComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [EditPropertyComponent]
+      imports: [PropertyEditComponent]
     })
     .compileComponents();
 
-    fixture = TestBed.createComponent(EditPropertyComponent);
+    fixture = TestBed.createComponent(PropertyEditComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
