@@ -69,22 +69,7 @@ export class PropertyService {
 
 }
 
-delete_property(id: Number): PropertyResponse {
-  
-  let properties: Array<Property> = JSON.parse(localStorage.getItem("properties") || "[]");
 
-  const propertyIndex = properties.findIndex(property => property.property_id === id);
-
- 
-  if (propertyIndex !== -1) {
-    properties.splice(propertyIndex, 1); 
-    localStorage.setItem("properties", JSON.stringify(properties)); 
-  }
-
-  return {
-    success: propertyIndex !== -1 // Devuelve true si la propiedad fue encontrada y eliminada
-  };
-}
 
 
   getUser_id(){

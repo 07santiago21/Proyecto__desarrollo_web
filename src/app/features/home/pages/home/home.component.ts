@@ -34,4 +34,12 @@ export class HomeComponent {
       console.log(this.hotels)
     }
   }
+
+
+
+  order_by_price(){
+    
+    this.hotels = this.homeService.order_by_price(this.hotels)
+
+  }
 }
