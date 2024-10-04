@@ -8,10 +8,10 @@ import { PropertyService } from '../services/property.service';
 @Component({
   selector: 'app-add-property',
   standalone: true,
-  imports: [FormsModule, CommonModule, ReactiveFormsModule, HttpClientModule], // Add HttpClientModule to imports
+  imports: [FormsModule, CommonModule, ReactiveFormsModule, HttpClientModule], 
   templateUrl: './add-property.component.html',
   styleUrls: ['./add-property.component.css'],
-  providers: [PropertyService] // Ensure PropertyService is provided
+  providers: [PropertyService] 
 })
 export class AddPropertyComponent {
   addPropertyForm: FormGroup;
@@ -19,7 +19,7 @@ export class AddPropertyComponent {
 
   constructor(private fb: FormBuilder, private propertyService: PropertyService) {
     this.addPropertyForm = this.fb.group({
-      user_id: ['', [Validators.required]],
+      
       title: ['', [Validators.required]],
       description: ['', [Validators.required]],
       address: ['', [Validators.required]],
