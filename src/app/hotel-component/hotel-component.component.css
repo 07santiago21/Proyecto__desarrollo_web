@@ -1,3 +1,4 @@
+/* Existing styles for the component */
 .component {
     border-radius: 10px;
     overflow: hidden;
@@ -24,7 +25,6 @@
 
 .info {
     padding: 10px; 
-    
 }
 
 .info p {
@@ -41,4 +41,21 @@
     color: #333;
     font-weight: bold;
     font-size: 16px;
+}
+
+
+.hotel-link {
+    display: inline-block;
+    padding: 10px 15px;
+    background-color: #007bff; 
+    color: white; 
+    text-decoration: none; 
+    border-radius: 5px; 
+    font-size: 14px; 
+    font-weight: bold; 
+    transition: background-color 0.3s ease;
+}
+
+.hotel-link:hover {
+    background-color: #0056b3; 
 }
