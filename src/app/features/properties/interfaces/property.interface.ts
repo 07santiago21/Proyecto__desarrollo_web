@@ -1,3 +1,4 @@
+
 export interface Property {
     property_id: number;
     listing_id: number;
@@ -9,6 +10,6 @@ export interface Property {
     pricePerNight: number;
     rooms: number;
     bathrooms: number;
-    maxCapacity: number;
+    max_capacity: number;
     photos: string;
   }

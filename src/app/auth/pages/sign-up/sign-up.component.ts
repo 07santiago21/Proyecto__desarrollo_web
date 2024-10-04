@@ -1,48 +1,63 @@
 import { Component, Input, Output, EventEmitter } from '@angular/core';
-import { FormBuilder, FormGroup, Validators, ReactiveFormsModule } from '@angular/forms'; // Import necessary modules
-import { Router } from '@angular/router'; // Import Router
-import { CommonModule } from '@angular/common'; // Import CommonModule
+import { FormBuilder, FormGroup, Validators, ReactiveFormsModule } from '@angular/forms'; 
+import { Router } from '@angular/router'; 
+import { CommonModule } from '@angular/common';
+import { UserService } from '../../services/user.service';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'sign-up',
   standalone: true,
-  imports: [ReactiveFormsModule, CommonModule], // Add CommonModule to imports
+  imports: [ReactiveFormsModule, CommonModule],
   templateUrl: './sign-up.component.html',
   styleUrls: ['./sign-up.component.css']
 })
 export class SignUpComponent {
-  @Input() userData: any; // Input property to accept user data
-  @Output() formSubmit = new EventEmitter<any>(); // Output event to emit form data
 
   signUpForm: FormGroup;
 
-  constructor(private fb: FormBuilder, private router: Router) {
+  constructor(private fb: FormBuilder, private router: Router, private userService: UserService) {
     this.signUpForm = this.fb.group({
-      username: ['', [Validators.required, Validators.minLength(3)]],
+      user_id: ['', [Validators.required]],
+      username: ['', [Validators.required, this.userService.usernameValidator()]],
       email: ['', [Validators.required, Validators.email]],
-      password: ['', [Validators.required, Validators.minLength(6)]],
+      password: ['', [Validators.required, this.userService.passwordValidator()]],
       profile_picture: [''],
       bio: [''],
       is_owner: [false]
     });
   }
 
-  ngOnChanges() {
-    if (this.userData) {
-      this.signUpForm.patchValue(this.userData); // Pre-fill form with user data
+  onRegister(){
+    if(!this.signUpForm.valid){
+      Swal.fire({
+        text: 'Debe diligenciar todos los campos',
+        icon: 'error'
+      })
+      return;
+    }
+
+    let user_id = this.signUpForm.value.user_id || '';
+    let username = this.signUpForm.value.username || '';
+    let email = this.signUpForm.value.email || '';
+    let password = this.signUpForm.value.password || '';
+    let profile_picture = this.signUpForm.value.profile_picture || '';
+    let bio = this.signUpForm.value.bio || '';
+    let is_owner = this.signUpForm.value.is_owner || false;
+
+
+    let response = this.userService.register({user_id, username, email, password, profile_picture, bio, is_owner})
+    if(response.success){
+      this.goToUrl('')
+    }else{
+      Swal.fire({
+        text: response.message,
+        icon: 'error'
+      })
     }
   }
 
-  saveProfile() {
-    if (this.signUpForm.valid) {
-      this.formSubmit.emit(this.signUpForm.value); // Emit form data
-      console.log('Profile saved', this.signUpForm.value);
-    } else {
-      console.log('Form is invalid');
-    }
-  }
-
-  goBackToHome() {
-    this.router.navigate(['/home']); // Adjust the route as necessary
+  goToUrl(url: string) {
+    this.router.navigateByUrl(url);
   }
 }
