@@ -46,4 +46,12 @@ export class PropertyService {
       return of({ success: false });
     }
   }
+
+  getUser_id(){
+    const userSrt = localStorage.getItem('loggedUser');
+    if(userSrt){
+      const user = JSON.parse(userSrt).user_id;
+      return user
+    }
+  }
 }

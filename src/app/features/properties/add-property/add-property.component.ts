@@ -42,7 +42,9 @@ export class AddPropertyComponent {
       return;
     }
 
-    const property = this.addPropertyForm.value;
+    let property = this.addPropertyForm.value;
+    const user_id = this.propertyService.getUser_id()
+    property = {user_id ,...property}
 
     let response = this.propertyService.addProperty(property);
 
