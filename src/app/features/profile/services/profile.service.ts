@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { User } from '../../../auth/interfaces/user';
 import { UserService } from '../../../auth/services/user.service';
+import { ProfileResponse } from '../interfaces/profile_response.interface';
 
 @Injectable({
   providedIn: 'root'
@@ -16,7 +17,7 @@ export class ProfileService {
   
   }
 
-  updateUser(userId: number,userName:string,password:string,email:string,bio:string,profile_picture:string) {
+  updateUser(userId: number,userName:string,password:string,email:string,bio:string,profile_picture:string): ProfileResponse{
 
 
     let usuarios: Array<User> = JSON.parse(localStorage.getItem("users")|| "[]")
@@ -41,6 +42,10 @@ export class ProfileService {
     } else {
       console.log('Usuario no encontrado');
     }
+
+    return {
+      success: true
+    };
   }
 
 

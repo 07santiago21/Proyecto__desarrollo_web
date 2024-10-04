@@ -26,11 +26,11 @@ export class PropertyService {
     };
   }
 
-  getPropertyById(id: string): Observable<Property> {
+  getPropertyById(id: string): Property|undefined {
     let propertiesArray = localStorage.getItem('properties');
     let properties: Array<Property> = propertiesArray ? JSON.parse(propertiesArray) : [];
     let property = properties.find(prop => prop.property_id === +id);
-    return of(property as Property);
+    return property
   }
 
   updateProperty(id: string, updatedProperty: Property): Observable<PropertyResponse> {
@@ -46,6 +46,25 @@ export class PropertyService {
       return of({ success: false });
     }
   }
+
+
+  updateProperty_(property:any,update_property: any):PropertyResponse{
+    for (const key in update_property) {
+      if (update_property[key] !== "") {
+          property[key] = update_property[key];
+      }
+
+      let properties: Array<Property> = JSON.parse(localStorage.getItem("properties")|| "[]")
+      const propertyIndex = properties.findIndex(property_ => property_.property_id === property.property_id);
+      properties[propertyIndex] = property
+      localStorage.setItem("properties",JSON.stringify(properties))
+
+  }
+  return {
+    success: true
+  };
+
+}
 
   getUser_id(){
     const userSrt = localStorage.getItem('loggedUser');

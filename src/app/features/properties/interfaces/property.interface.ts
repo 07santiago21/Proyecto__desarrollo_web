@@ -8,7 +8,7 @@ export interface Property {
     address: string;
     latitude: string;
     longitude: string;
-    pricePerNight: number;
+    price_per_night: number;
     rooms: number;
     bathrooms: number;
     max_capacity: number;
