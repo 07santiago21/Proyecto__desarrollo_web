@@ -1,4 +1,3 @@
-
 export interface Property {
     user_id:number
     property_id: number;
