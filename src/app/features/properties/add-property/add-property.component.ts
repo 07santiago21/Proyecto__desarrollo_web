@@ -19,7 +19,7 @@ export class AddPropertyComponent {
 
   constructor(
     private fb: FormBuilder, 
-    private propertyService: PropertyService,
+    private propertyService: PropertyService, 
     private supabaseService: SupabaseService // Inyección del servicio aquí
   ) {
     this.addPropertyForm = this.fb.group({
@@ -72,18 +72,18 @@ export class AddPropertyComponent {
     this.selectedFile = inputFile.files[0];
   }
 
-  // uploadImage() {
-  //   if (!this.selectedFile) return;
+  uploadImage() {
+    if (!this.selectedFile) return;
 
-  //   const fileName = `${uuidv4()}.${this.selectedFile.name.split('.').pop()}`;
-  //   const foldername = 'property_images';
+    const fileName = `${uuidv4()}.${this.selectedFile.name.split('.').pop()}`;
+    const foldername = 'property_images';
 
-  //   try {
-  //     const publicUrl = this.supabaseService.upload(this.selectedFile, fileName, foldername);
-  //     return publicUrl;
-  //   } catch (error) {
-  //     console.error('Error subiendo la imagen:', error);
-  //     return;
-  //   }
-  // }
+    try {
+      const publicUrl = this.supabaseService.upload(this.selectedFile, fileName, foldername);
+      return publicUrl;
+    } catch (error) {
+      console.error('Error subiendo la imagen:', error);
+      return;
+    }
+  }
 }

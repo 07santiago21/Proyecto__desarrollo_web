@@ -16,15 +16,15 @@ export class SupabaseService {
   }
 
   async upload(file: File, filename: string, foldername: string){
-      // const { error } = await this.supabase.storage.from('images').upload(`${foldername}/${filename}`, file);
-      // if (error) {
-      //   alert(error.message);
-      //   return;
-      // }
+      const { error } = await this.supabase.storage.from('images').upload(`${foldername}/${filename}`, file);
+      if (error) {
+        alert(error.message);
+        return;
+      }
       
-      // const { data } = await this.supabase.storage.from('images').getPublicUrl(`${foldername}/${filename}`);
+      const { data } = await this.supabase.storage.from('images').getPublicUrl(`${foldername}/${filename}`);
       
-      // return data.publicUrl;
+    return data.publicUrl;
     }
 
 }
